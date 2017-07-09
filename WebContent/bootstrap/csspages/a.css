@@ -1,0 +1,110 @@
+*
+{
+    font-size: 15px;
+    background-color:bisque;
+}
+
+div.a
+{
+display: inline-block; 
+border: solid 2px crimson;
+margin: 10px;
+height: 40px;
+width:200px;
+font-family:Arial, Helvetica, sans-serif;
+size: 10px;
+color:cornsilk;
+text-align: center;
+padding-top:5px;
+background-color:aquamarine;
+
+}
+div.col-md-3
+{
+ 
+  width:320px;
+}
+.banner
+{
+    width:100%;
+    
+}
+li
+{
+    text-decoration:none;
+    list-style:none; 
+    margin: 10px;
+    padding: 10px;
+    border: solid 1px firebrick; 
+    
+    text-align: center;
+}
+div.sidebar
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.left
+{
+    text-decoration: none;
+}
+div.col-md-4
+{
+    /*border: solid 2px lightcoral;*/
+    float:left;
+    height: 500px;
+    margin: 10px;
+    width: 260px;
+font-family:Arial, Helvetica, sans-serif;
+size: 10px;
+text-align:left;
+padding-top:5px;
+}
+
+div.col-md-8
+{
+    border: solid 2px;
+     height: 460px;
+      width: 770px;
+      margin: 10px;
+     
+}
+
+#overview,#visa_categories,#fees_indian_visa,#online_visa_application,#visa_processing_time,#technical_info,#instructions,#useful_weblink,#visa_photo_requirements,#foreigner_act,#visa_provision
+{
+/*border: solid 2px firebrick;*/
+width: 700px;
+height: 410px;
+position: absolute;
+margin: auto;
+top: 340px;
+bottom:0;
+left: 0;
+right: 0;
+
+}
+
+#name
+{
+    text-align: center;
+}
+
+
+#data
+{
+font-family:Arial, Helvetica, sans-serif;
+size: 10px;
+}
+
+#inner
+{
+    border: solid 2px crimson;
+    height: 700px;
+    margin-top: 10px;
+    padding:20px; 
+}
+body
+{
+    background-color: moccasin;
+}

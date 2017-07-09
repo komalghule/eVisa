@@ -1,0 +1,16 @@
+Category,Country,Document,Download,Description
+All,All,Passport,,Passport valid for a minimum of 180 days with at least two blank pages.
+All,All,Application Form,,Filled application form.
+All,All,Declaration,,
+All,All,Visa Fee Receipt,,Proof of Visa fee payment.
+All,All,Photographs,,2 recent 50mm x 50mm sized photographs.
+All,All,Financial Support Proof,,"Bank statements, Tax returns and/or other related documents."
+All,All,Undertaking Form,Media_Undertaking.pdf,For media related professionals stating no professional related activities would be undertaken during stay in India.
+Student,All,Letter of admission,,Letter of admission from recognized school/college/univeristy or educational institute in India.
+Student,All,Institute Fee receipt,,Receipt of fee paid to the school/college.
+Student,All,Bonifide Certificate,,Bonafide letter from the school/college.
+Student,All,Undertaking Form,Student_Undertaking.pdf,Institute/Residence information
+Tourist,All,Employer letter,,From employer (on letter head) stating purpose of travel.
+Business,All,Employer letter,,"From employer (on letter head) containing purpose of visit, applicant’s name, passport number, duration of stay in india (per trip)."
+Business,All,Invitation letter,,"From Indian company (on letter head) containing purpose of visit, applicant’s name, passport number, duration of stay in india (per trip)."
+Medical,All,Undertaking Form,Medical_Undertaking.pdf,"Contaning treatment, hospital details."

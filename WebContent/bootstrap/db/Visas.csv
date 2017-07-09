@@ -1,0 +1,12 @@
+Category,Validity,Unit,VisaFees (GBP),Biometric,Description
+Tourist,1,Years,112,FALSE,Can stay maximum 180 days in per visit.
+Tourist,5,Years,332,TRUE,Can stay maximum 180 days in per visit.
+Tourist,31,Days,13,FALSE,
+Tourist,91,Days,20,FALSE,
+Student,5,Years,56,TRUE,
+Business,1,Years,166,TRUE,
+Business,5,Years,492,TRUE,
+Business,31,Days,20,TRUE,
+Business,91,Days,30,TRUE,
+Medical,1,Years,89,FALSE,
+Medical,6,Months,61,FALSE,

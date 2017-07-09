@@ -1,0 +1,655 @@
+DB: visaproj
+COLLECTION: visas
+Document1 -- Tourist Visa
+
+{
+	"category": "Tourist",
+	"types": [{
+			"category": "Tourist",
+			"validity": {
+				"duration": 1,
+				"unit": "Years"
+			},
+			"fees": 112,
+			"desc": "Can stay maximum 180 days in per visit.",
+			"biometric": false
+		},
+		{
+			"category": "Tourist",
+			"validity": {
+				"duration": 5,
+				"unit": "Years"
+			},
+			"fees": 332,
+			"desc": "Can stay maximum 180 days in per visit.",
+			"biometric": true
+		},
+		{
+			"category": "Tourist",
+			"validity": {
+				"duration": 31,
+				"unit": "Days"
+			},
+			"fees": 13,
+			"desc": "",
+			"biometric": false
+		},
+		{
+			"category": "Tourist",
+			"validity": {
+				"duration": 91,
+				"unit": "Days"
+			},
+			"fees": 20,
+			"desc": "",
+			"biometric": false
+		}
+	],
+	"documents": [{
+			"category": "Tourist",
+			"doc": "Passport",
+			"desc": "Passport valid for a minimum of 180 days with at least two blank pages.",
+			"download": ""
+		},
+		{
+			"category": "Tourist",
+			"doc": "Application Form",
+			"desc": "Filled application form.",
+			"download": ""
+		},
+		{
+			"category": "Tourist",
+			"doc": "Declaration",
+			"desc": "Document stating purpose of visit.",
+			"download": ""
+		},
+		{
+			"category": "Tourist",
+			"doc": "Visa Fee Receipt",
+			"desc": "Proof of Visa fee payment.",
+			"download": ""
+		},
+		{
+			"category": "Tourist",
+			"doc": "Photographs",
+			"desc": "2 recent 50mm x 50mm sized photographs.",
+			"download": ""
+		},
+		{
+			"category": "Tourist",
+			"doc": "Financial Support Proof",
+			"desc": "Bank statements, Tax returns and/or other related documents.",
+			"download": ""
+		},
+		{
+			"category": "Tourist",
+			"doc": "Undertaking Form",
+			"desc": "For media related professionals stating no professional related activities would be undertaken during stay in India.",
+			"download": "Media_Undertaking.pdf"
+		},
+		{
+			"category": "Tourist",
+			"doc": "Employer letter",
+			"desc": "From employer (on letter head) stating purpose of travel.",
+			"download": ""
+		}
+	]
+}
+---------------------------
+Document2 -- Medical Visa
+
+{
+	"category": "Medical",
+	"types": [{
+			"category": "Medical",
+			"validity": {
+				"duration": 1,
+				"unit": "Years"
+			},
+			"fees": 89,
+			"desc": "",
+			"biometric": false
+		},
+		{
+			"category": "Medical",
+			"validity": {
+				"duration": 6,
+				"unit": "Months"
+			},
+			"fees": 61,
+			"desc": "",
+			"biometric": false
+		}
+	],
+	"documents": [{
+			"category": "Medical",
+			"doc": "Passport",
+			"desc": "Passport valid for a minimum of 180 days with at least two blank pages.",
+			"download": ""
+		},
+		{
+			"category": "Medical",
+			"doc": "Application Form",
+			"desc": "Filled application form.",
+			"download": ""
+		},
+		{
+			"category": "Medical",
+			"doc": "Declaration",
+			"desc": "Document stating purpose of visit.",
+			"download": ""
+		},
+		{
+			"category": "Medical",
+			"doc": "Visa Fee Receipt",
+			"desc": "Proof of Visa fee payment.",
+			"download": ""
+		},
+		{
+			"category": "Medical",
+			"doc": "Photographs",
+			"desc": "2 recent 50mm x 50mm sized photographs.",
+			"download": ""
+		},
+		{
+			"category": "Medical",
+			"doc": "Financial Support Proof",
+			"desc": "Bank statements, Tax returns and/or other related documents.",
+			"download": ""
+		},
+		{
+			"category": "Medical",
+			"doc": "Undertaking Form",
+			"desc": "For media related professionals stating no professional related activities would be undertaken during stay in India.",
+			"download": "Media_Undertaking.pdf"
+		},
+		{
+			"category": "Medical",
+			"doc": "Undertaking Form",
+			"desc": "Contaning treatment, hospital details.",
+			"download": "Medical_Undertaking.pdf"
+		}
+	]
+}
+-------------
+Document3 -- Student Visa
+
+{
+	"category": "Student",
+	"types": [{
+		"category": "Student",
+		"validity": {
+			"duration": 5,
+			"unit": "Years"
+		},
+		"fees": 56,
+		"desc": "",
+		"biometric": true
+	}],
+	"documents": [{
+			"category": "Student",
+			"doc": "Passport",
+			"desc": "Passport valid for a minimum of 180 days with at least two blank pages.",
+			"download": ""
+		},
+		{
+			"category": "Student",
+			"doc": "Application Form",
+			"desc": "Filled application form.",
+			"download": ""
+		},
+		{
+			"category": "Student",
+			"doc": "Declaration",
+			"desc": "Document stating purpose of visit.",
+			"download": ""
+		},
+		{
+			"category": "Student",
+			"doc": "Visa Fee Receipt",
+			"desc": "Proof of Visa fee payment.",
+			"download": ""
+		},
+		{
+			"category": "Student",
+			"doc": "Photographs",
+			"desc": "2 recent 50mm x 50mm sized photographs.",
+			"download": ""
+		},
+		{
+			"category": "Student",
+			"doc": "Financial Support Proof",
+			"desc": "Bank statements, Tax returns and/or other related documents.",
+			"download": ""
+		},
+		{
+			"category": "Student",
+			"doc": "Undertaking Form",
+			"desc": "For media related professionals stating no professional related activities would be undertaken during stay in India.",
+			"download": "Media_Undertaking.pdf"
+		},
+		{
+			"category": "Student",
+			"doc": "Letter of admission",
+			"desc": "Letter of admission from recognized school/college/univeristy or educational institute in India.",
+			"download": ""
+		},
+		{
+			"category": "Student",
+			"doc": "Institute Fee receipt",
+			"desc": "Receipt of fee paid to the school/college.",
+			"download": ""
+		},
+		{
+			"category": "Student",
+			"doc": "Bonifide Certificate",
+			"desc": "Bonafide letter from the school/college.",
+			"download": ""
+		},
+		{
+			"category": "Student",
+			"doc": "Undertaking Form",
+			"desc": "Institute/Residence information",
+			"download": "Student_Undertaking.pdf"
+		}
+	]
+}
+---------------------------
+Document4 -- Business Visa
+
+{
+	"category": "Business",
+	"types": [{
+			"category": "Business",
+			"validity": {
+				"duration": 1,
+				"unit": "Years"
+			},
+			"fees": 166,
+			"desc": "",
+			"biometric": true
+		},
+		{
+			"category": "Business",
+			"validity": {
+				"duration": 5,
+				"unit": "Years"
+			},
+			"fees": 492,
+			"desc": "",
+			"biometric": true
+		},
+		{
+			"category": "Business",
+			"validity": {
+				"duration": 31,
+				"unit": "Days"
+			},
+			"fees": 20,
+			"desc": "",
+			"biometric": true
+		},
+		{
+			"category": "Business",
+			"validity": {
+				"duration": 91,
+				"unit": "days"
+			},
+			"fees": 30,
+			"desc": "",
+			"biometric": true
+		}
+	],
+	"documents": [{
+			"category": "Business",
+			"doc": "Passport",
+			"desc": "Passport valid for a minimum of 180 days with at least two blank pages.",
+			"download": ""
+		},
+		{
+			"category": "Business",
+			"doc": "Application Form",
+			"desc": "Filled application form.",
+			"download": ""
+		},
+		{
+			"category": "Business",
+			"doc": "Declaration",
+			"desc": "Document stating purpose of visit.",
+			"download": ""
+		},
+		{
+			"category": "Business",
+			"doc": "Visa Fee Receipt",
+			"desc": "Proof of Visa fee payment.",
+			"download": ""
+		},
+		{
+			"category": "Business",
+			"doc": "Photographs",
+			"desc": "2 recent 50mm x 50mm sized photographs.",
+			"download": ""
+		},
+		{
+			"category": "Business",
+			"doc": "Financial Support Proof",
+			"desc": "Bank statements, Tax returns and/or other related documents.",
+			"download": ""
+		},
+		{
+			"category": "Business",
+			"doc": "Undertaking Form",
+			"desc": "For media related professionals stating no professional related activities would be undertaken during stay in India.",
+			"download": "Media_Undertaking.pdf"
+		},
+		{
+			"category": "Business",
+			"doc": "Employer letter",
+			"desc": "From employer (on letter head) containing purpose of visit, applicant’s name, passport number, duration of stay in india (per trip).",
+			"download": ""
+		},
+		{
+			"category": "Business",
+			"doc": "Invitation letter",
+			"desc": "From Indian company (on letter head) containing purpose of visit, applicant’s name, passport number, duration of stay in india (per trip).",
+			"download": ""
+		}
+	]
+}
+-------------------------
+
+COLLECTION: countries
+Document1 -- Australia
+{
+	"country":"Australia",
+	"currency":"AUD",
+	"center":[
+		{
+			"city":"Sydney",
+			"address":"Suite 1A, Level 8, 189 Kent Street, Sydney 2000.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"Melbourne",
+			"address":"Suite 4, Level 12, 55 Swanston Street, Melbourne 3000.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"Canberra",
+			"address":"Unit 2, 20 Allara Street, Canberra.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"Perth",
+			"address":"Level 1, Room 22, 195 Adelaide Terrace (Good Earth Hotel), Perth WA – 6004.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		}
+
+	]
+}
+------------------------
+Document2 -- United Kingdom
+
+{
+	"country":"United Kingdom",
+	"currency":"GBP",
+	"center":[
+		{
+			"city":"Glasgow",
+			"address":"Central Chambers, 2nd floor, Suite 201-202, 93 Hope Street, Glasgow, G2 6LD.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"Leicester",
+			"address":"Peepul's Centre, Leicester, Orchardson Avenue, Leicester, L E4 6DP.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"Liverpool",
+			"address":"SUITE NO 207, Second Floor, GRAEME HOUSE, DERBY SQUARE, LIVERPOOL, L2 7ZH.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"Bristol",
+			"address":"Suite 102A, QC30 Queen Charlotte Street, Bristol BS1 4HJ.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"Belfast",
+			"address":"Office 404, 4th Floor, Premier Business Centre, 20 Adelaide Street, Belfast. BT2 8GD.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"London",
+			"address":"142-148 Goswell Road, London EC1V 7DU.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"London",
+			"address":"The Vista Centre, First Floor – Part A, Block50, Salisbury Road, Hounslow, TW4 6JQ.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		}
+	]
+}
+--------------
+Document3 -- South Africa
+
+{
+	"country":"South Africa",
+	"currency":"ZAR",
+	"center":[
+		{
+			"city":"Johannesburg",
+			"address":"2nd floor, Harrow Court 1, Isle of Houghton Office Park, Boundary Rd, Park Town, Johannesburg, 2198.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"Durban",
+			"address":"Office 401, 4th Floor, 91-123 Cowey Office Park (Problem Mkhize Road), Essenwood, Durban ,4001.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"Cape Town",
+			"address":"01st Floor, 47 Strand Street, Cape Town , 8001.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		}
+	]
+}
+------------------
+Document4 -- Switzerland
+
+({
+	"country":"Switzerland",
+	"currency":"CHF",
+	"center":[
+		{
+			"city":"Bern",
+			"address":"Weststrasse 2, 3005 Bern.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		},
+		{
+			"city":"Genève",
+			"address":"70 Rue de Lausanne, 1202 Genève.",
+			"contactno":"",
+			"location":{"lagitude":0.0,"latitude":0.0}	
+		}
+	]
+})
+--------------------------
+
+COLLECTION: applications
+Document1 -- 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+format :
+
+{
+	[
+	"id":"",
+	"personal":{
+		"surname":"",
+		"givenname":"",
+		"previousname":"",
+		"sex":"",
+		"maritalstatus":"",
+		"birth":"",
+		"birthplace":"",
+		"birthcountry":"",
+		"religion":"",
+		"nationalid":"",
+		"education":"",
+		"visiblemarks":"",
+		"nationality":"",
+		"nationalityreason":""
+		},
+	"passport":{
+		"passportno":"",
+		"issueplace":"",
+		"issuedate":"",
+		"expirydate":"",
+		"anyotherpassport":"",
+		"other":{}
+		},
+	"contacts":{
+		"presenradd":"",
+		"permanentadd":"",
+		"phoneno":"",
+		"mobno":"",
+		"email":""
+	},
+	"visasought":{
+		"visatype":"",
+		"visaperiod":"",
+		"entries":"",
+		"journeydate":"",
+		"arrivalport":"",
+		"exitport":"",
+		"visitpurpose":""
+	},
+	"previousvisitdetails":{
+		"evervisited":"true/false",
+		"add":"",
+		"visitedcities":"",
+		"visatype":"",
+		"visano":"",
+		"issueplace":"",
+		"issuedate":"",	
+	}
+	]
+}
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+db.applications.insert({
+        "form1":[
+	{
+	"appid": "",
+	"personal": {
+		"surname": "ghule",
+		"givenname": "komal ghule",
+		"previousname": "",
+		"sex": "female",
+		"maritalstatus": "single",
+		"birth": "09-apr-1992",
+		"birthplace": "pune",
+		"birthcountry": "india",
+		"religion": "hindu",
+		"nationalid": "na",
+		"education": "graduate",
+		"visiblemarks": "specs",
+		"nationality": "shri lanka",
+		"nationalityreason": "by birth"
+	},
+	"passport": {
+		"passportno": "P1234567",
+		"issueplace": "pune",
+		"issuedate": "02-jan-2017",
+		"expirydate": "30-apr-2020",
+		"anyotherpassport": "",
+		"other": {}
+	},
+	"contacts": {
+		"presenraddr": "nimadari,junnar,maharashtra,India,410502.",
+		"permanentaddr": "nimadari,junnar,maharashtra,India,410502.",
+		"phoneno": "",
+		"mobno": "8600331739",
+		"email": "komalghule47@gmail.com"
+	},
+	"familydetails": [{
+			"relation": "father",
+			"name": "kailas ghule",
+			"nationality": "indian",
+			"birthcountry": "pune"
+		},
+		{
+			"relation": "mothers",
+			"name": "asha ghule",
+			"nationality": "indian",
+			"birthcountry": "pune"
+		}
+	],
+	"visasought": {
+		"visatype": "student visa",
+		"visaperiod": "6 months",
+		"entries": "single",
+		"journeydate": "30-oct-2017",
+		"arrivalport": "mumbai",
+		"exitport": "mumbai",
+		"visitpurpose": "short term cources"
+	},
+	"previousvisitdetails": {
+		"isvisit": "true/false",
+		"evervisited": "false",
+		"addr": "",
+		"visitedcities": "",
+		"visatype": "",
+		"visano": "",
+		"issueplace": "",
+		"issuedate": ""
+	},
+	"occupationfather": {
+		"presentocc": "student",
+		"designation": "",
+		"business": "farmer",
+		"address": "junnar,pune",
+		"phoneno": "07172-284090",
+		"post": ""
+	},
+	"stayaddress": {
+		"placename": "",
+		"address": "",
+		"state": "",
+		"phoneno": ""
+	},
+	"references": [{
+			"country": "india",
+			"name": "",
+			"address": "",
+			"phoneno": ""
+		},
+		{
+			"country": "shri lanka",
+			"name": "",
+			"address": "",
+			"phoneno": ""
+		}
+	],
+	"date": "",
+	"sign": ""
+	}]
+})
+------------------------------------------------------------------------------------------
