@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -41,125 +42,119 @@ div
 
 <body>
 	
-	<form action="applicantDetailForm" method="POST" role="form">
+	<form:form action="applicantDetailForm" modelAttribute="command" >
    <center> <legend >Applicant Details Form</legend></center>
 <div>
 						<div>
-							Please Note Down the Temporary Application Id:
+						
+						Application Id: <form:input type="text" readonly="true" path="applicationFormId" />
 						</div><br/>
 						<legend><h4 style="text-decoration:darkorchid ">Applicant Details</h4></legend>
 				
 					<div>
 						<label>Surname(as per passport):</label><br/>
-						<input type="text" name="place"required=""/>
+						<form:input type="text" path="lastName" />
 					</div>
 					
 					<div>
 						<label>Given Name(as per passport):</label><br/>
-						<input type="text" name="place" required=""/>
+						<form:input type="text" path="firstName"/>
 					</div><br/>
 					
 					<div class="form-date-w3-agileits">
 						<label><i class="fa fa-calendar" aria-hidden="true"></i> Date of birth :</label><br/>
-						<input  id="datepicker1" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+						<form:input  id="datepicker1" name="Text" type="text" path="birthDate" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"/>
 					</div><br/>
 					<div><br>
 						<label class="lb">Town/City of birth :</label><br/>
-						<input id="data" type="text" name="city" placeholder="Your Birth city" required=""/>
+						<form:input id="data" type="text" name="city" placeholder="Your Birth city" path="birthCity"/>
 					</div><br/>
                     	
 					<div>
 						<label id="data">Country of birth :</label>
                        
-							<select class="form-control">
-								<option></option>
-								<option></option>
-								<option></option>
-								<option></option>
-								<option></option>
-								<option></option>
-								<option></option>
-							</select>
+							<form:select path="birthCountry" class="form-control">
+								<option>South Africa</option>
+								<option>Switzerland</option>
+								<option>Australia</option>
+								<option>United Kingdom</option>
+								<option>India</option>
+								<option>Sri Lanka</option>
+								<option>South Korea</option>
+							</form:select>
 					</div><br>
 
 				<div>
 						<label id="data">Select Gender:</label>
                        
-							<select class="form-control">
+							<form:select path="gender" class="form-control">
 								<option>Female</option>
 								<option>Male</option>
 								
-							</select>
+							</form:select>
 					</div><br>
 
 						
-                        <div class="checkbox">
-                            <label id="data">
-                                <input type="checkbox" value="">
-                           Have you ever changed your name?if yes,click the box and give details
-                            </label>
-                        </div><br/>
                     	<div>
 						<label id="data">Citizenship/National Id No:</label><br/>
-						<input type="text" name="Citizenship" placeholder="Citizenship" required=""/>
+						<form:input type="text" path="nationalId" placeholder="Citizenship" />
 					</div><br/>
                     <div>
 							<label id="data">religion:</label>
-							<select class="form-control" style="display:inline-block">
+							<form:select class="form-control" path="religion" style="display:inline-block">
 								<option>Hindu</option>
-								<option></option>
-								<option></option>
-								<option></option>
-								<option></option>
-								<option></option>
-								<option></option>
-							</select>
+								<option>Christianity</option>
+								<option>Buddhism</option>
+								<option>Islam</option>
+								<option>Others</option>
+							</form:select>
 					</div><br>
 					<div>
 						<label id="data">Visible Identification Mark:</label><br/>
-						<input type="text" name="Identification" placeholder="Identification" required=""/>
+						<form:input type="text" path="visibleIdMark" placeholder="Identification" />
 					</div><br/>
 					<div>
 							<label id="data">Educational Qualification :</label>
-							<select class="form-control">
-								<option>Qualification</option>
-								<option></option>
-								<option></option>
-								<option></option>
-								<option></option>
-								<option></option>
-								<option></option>
-							</select>
+							<form:select path="qualification" class="form-control">
+								<option>Primary</option>
+								<option>Secondary</option>
+								<option>Higher Secondary</option>
+								<option>Graduation</option>
+								<option>Post Graduation</option>
+								<option>PH.D</option>
+								<option>Other</option>
+							</form:select>
 					</div><br><br>
 					 <div class="radio">
                                
                               <label>
-                                  Have you lived for at least two year in the country where you are applying: <input type="radio" name="question" value="question"> Yes
-                               <input type="radio" name="question" value="question" >no
+                                  <form:checkbox path="twoYearsMoreLiveForFromCountry"  name="question" value="question"/>
+                                  Have you lived for at least two year in the country where you are applying.
+                               	
                               </label> 
                           </div>
 				<legend >Passport Details</legend>
                         <div>
 						<label> Passport No.(as shown in your passport) :</label>
-						<input type="text" name="no" required="" pattern="[A-PR-W-Y]{1}[1-9]{1}[0-9]{5}[1-9]{1}" />
+						<form:input type="text" path="passportNo"  pattern="[A-PR-W-Y]{1}[1-9]{1}[0-9]{5}[1-9]{1}" />
 					</div><br/>
 					<div>
 						<label>place of issue:</label>
-						<input type="text" name="place" required="" pattern="[a-zA-Z0-9]{5,100}"/>
+						<form:input type="text" path="issueCity"  pattern="[a-zA-Z0-9]{5,100}"/>
 					</div><br/>
 					<div>
 						<label> Date of Issue:</label>
-						<input type="date" name="issuedate"  required=""/>
+						<form:input type="date" path="issueDate" />
 					</div><br/>
 
 						<div>
 						<label> Date of Expiry:</label>
-						<input type="date" name="expdate"  required=""/>
+						<form:input type="date" path="expiryDate" />
 				    	</div><br/>
 					<div>
 						
 						<label> Country Of issue:</label>
-						<input type="text" name="issuedate"  required="" pattern="[a-zA-Z]{5,100}"/>
+						<form:input type="text" path="issueCountry" pattern="[a-zA-Z]{5,100}"/>
 					</div><br/>
 				
 					<center>
@@ -168,7 +163,7 @@ div
 					</center>
 						
 					
-</form>
+</form:form>
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,7 +79,7 @@
     </script>
 </head>
 <body>
-	<form action="appForm" method="post" >
+	<form:form action="appForm"  modelAttribute="command">
 		<div>
 			<img class="banner" alt="Indian Visa Online"
 				src="bootstrap/images/banner1.jpg">
@@ -90,62 +91,57 @@
 			<div id="inner">
 
 				<div>
-					<label>Country you are applying visa from :</label> <select name="country"
-						id="drpCountry" class="form-control">
-					</select>
+					<label>Country you are applying visa from :</label> <form:select path="country"
+						id="drpCountry" class="form-control"/>
 				</div>
 				<br>
 				<div>
-					<label>Indian Mission :</label> <select id="drpCenter" name="center"
-						class="form-control">
-					</select>
+					<label>Indian Mission :</label> <form:select id="drpCenter" path="center"
+						class="form-control"/>
 				</div>
 				<br>
 				<div>
-					<label id="data">Nationality :</label> <select id="drpNationality" name="natinality"
-						class="form-control">
-					</select>
+					<label id="data">Nationality :</label> <form:select id="drpNationality" path="natinality"
+						class="form-control"/>
 				</div>
 				<br>
 				<div>
-					<label> Date of Birth:</label> <input type="date" name="birthDate"
-						required />
+					<label> Date of Birth:</label> <form:input type="date" path="birthDate" />
 				</div>
 				<br>
 
 				<div>
-					<label>Email ID :</label> <input type="email" name="email"
-						required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+					<label>Email ID :</label> <form:input type="email" path="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
 				</div>
 				<br>
 
 
 				<div>
 					<label> Expected Date of Arrival:</label> 
-					<input type="date" name="arrivalDate" required />
+					<form:input type="date" path="arrivalDate" />
 
 				</div>
 				<br>
 
 				<div>
 					<label id="data">Visa Type:</label> 
-					<select name="visaType" id="drpVisaType" class="form-control">
-					</select>
+					<form:select path="visaType" id="drpVisaType" class="form-control"/>
+					
 				</div>
 
 				<div>
 					<label id="data">Purpose:</label> 
-					<select name="purpose" id="drpPurpose" class="form-control">
-				</select>
+					<form:select path="purpose" id="drpPurpose" class="form-control"/>
+				
 				</div>
 				<br>
 				<center>
-					<input type="submit" class="btn-danger" value="Continue" />
+					<input type="submit" class="btn-danger" value="Continue"  />
 				</center>
 			</div>
 		</div>
 
-	</form>
+	</form:form>
 
 </body>
 </html>

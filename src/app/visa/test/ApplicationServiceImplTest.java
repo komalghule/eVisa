@@ -26,4 +26,14 @@ public class ApplicationServiceImplTest {
 		assertTrue("testSaveAppication()", app.getId()!=null && !app.getId().isEmpty());
 		
 	}
+	
+	@Test
+	public void testSaveAppication2(){
+		Application app2 = new Application();
+		service.saveApp(app2);
+		System.out.println(app2);
+		assertTrue("testSaveAppication2()", app2.getId()!=null && !app2.getId().isEmpty());
+		
+	}
+	
 }
