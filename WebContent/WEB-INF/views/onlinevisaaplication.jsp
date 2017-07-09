@@ -24,8 +24,8 @@
 				function(data) {
 					countries = data;
 					$.each(data, function(index,item) {
-						$("#drpCountry").append($("<option></option>").val(index).html(item.country));
-						$("#drpNationality").append($("<option></option>").val(index).html(item.country));
+						$("#drpCountry").append($("<option></option>").val(item.country).html(item.country));
+						$("#drpNationality").append($("<option></option>").val(item.country).html(item.country));
 					});
 					$("#drpCountry").change();
     			}
@@ -35,8 +35,15 @@
 				console.log("selected country : " + this.value);
 				$("#drpNationality").val(this.value);
 				$("#drpCenter").empty();
-				$.each(countries[this.value].centers, function(index,item) {
-					$("#drpCenter").append($("<option></option>").val(index).html(item.city));
+				var country = null;
+				for(var i=0; i<countries.length; i++) {
+					if(countries[i].country==this.value) {
+						country = countries[i];
+						break;
+					}
+				}
+				$.each(country.centers, function(index,item) {
+					$("#drpCenter").append($("<option></option>").val(item.city).html(item.city));
 				});    			
     		});
 
@@ -47,7 +54,7 @@
 					function(data) {
 						visas = data;	
 						$.each(data, function(index,item) {
-							$("#drpVisaType").append($("<option></option>").val(index).html(item.category));
+							$("#drpVisaType").append($("<option></option>").val(item.category).html(item.category));
 						});
 						$("#drpVisaType").change();
 	    			});
@@ -55,19 +62,23 @@
 			$('#drpVisaType').change(function() {
 				console.log("selected visas : " + this.value);
 				$("#drpPurpose").empty();
-				$.each(visas[this.value].purposes, function(index,item) {
-					$("#drpPurpose").append($("<option></option>").val(index).html(item));
+				var visa = null;
+				for(var i=0; i<visas.length; i++) {
+					if(visas[i].category==this.value) {
+						visa = visas[i];
+						break;
+					}
+				}
+				$.each(visa.purposes, function(index,item) {
+					$("#drpPurpose").append($("<option></option>").val(item).html(item));
 				});    			
     		});
-			
-	
-
      	});
 
     </script>
 </head>
 <body>
-	<form action="appForm" method="post">
+	<form action="appForm" method="post" >
 		<div>
 			<img class="banner" alt="Indian Visa Online"
 				src="bootstrap/images/banner1.jpg">
@@ -79,58 +90,53 @@
 			<div id="inner">
 
 				<div>
-					<label>Country you are applying visa from :</label> <select
+					<label>Country you are applying visa from :</label> <select name="country"
 						id="drpCountry" class="form-control">
 					</select>
 				</div>
 				<br>
 				<div>
-					<label>Indian Mission :</label> <select id="drpCenter"
+					<label>Indian Mission :</label> <select id="drpCenter" name="center"
 						class="form-control">
 					</select>
 				</div>
 				<br>
 				<div>
-					<label id="data">Nationality :</label> <select id="drpNationality"
+					<label id="data">Nationality :</label> <select id="drpNationality" name="natinality"
 						class="form-control">
 					</select>
 				</div>
 				<br>
 				<div>
-					<label> Date of Birth:</label> <input type="date" name="date"
+					<label> Date of Birth:</label> <input type="date" name="birthDate"
 						required />
 				</div>
 				<br>
 
 				<div>
 					<label>Email ID :</label> <input type="email" name="email"
-						required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
+						required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" />
 				</div>
 				<br>
 
 
 				<div>
-					<label> Expected Date of Arrival:</label> <input type="date"
-						name="date" required="" />
+					<label> Expected Date of Arrival:</label> 
+					<input type="date" name="arrivalDate" required />
 
 				</div>
 				<br>
 
 				<div>
-					<label id="data">Visa Type:</label> <select id="drpVisaType"
-						class="form-control">
+					<label id="data">Visa Type:</label> 
+					<select name="visaType" id="drpVisaType" class="form-control">
 					</select>
 				</div>
 
 				<div>
-					<label id="data">Purpose:</label> <select id="drpPurpose"
-						class="form-control">
-						<option>Short Term Course</option>
-						<option>School Education in India</option>
-						<option>Provisional Student Visa</option>
-						<option>Studing Regular Courses in Universities Imparting
-							Higher Education</option>
-					</select>
+					<label id="data">Purpose:</label> 
+					<select name="purpose" id="drpPurpose" class="form-control">
+				</select>
 				</div>
 				<br>
 				<center>

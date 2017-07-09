@@ -4,14 +4,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Document(collection="applications")
 public class Application {
-	@Field
-	private int appid;
+	
+	@Id
+	private String id;
 	@Field
 	private VisaDetails visa;
 	@Field
@@ -43,17 +47,17 @@ public class Application {
 	private Date date;
 	
 	public Application() {
-		this(0,new VisaDetails(),new PersonalDetails(),new PassportDetails(),new ContactDetails(),
+		this(null,new VisaDetails(),new PersonalDetails(),new PassportDetails(),new ContactDetails(),
 				new ArrayList<>(),"",new ArrayList<>(),new OccupationDetails(),new Address(),new ReferenceDetails(),
 				new ReferenceDetails(),new ArrayList<>(),new PaymentDetails(),new Date());
 	}
 	
-	public Application(int appid, VisaDetails visa, PersonalDetails personal, PassportDetails passport,
+	public Application(String appid, VisaDetails visa, PersonalDetails personal, PassportDetails passport,
 			ContactDetails contact, List<FamilyDetails> familyMembers, String lastVisaAppId,
 			List<String> lastVisitedCities, OccupationDetails occupation, Address resiAddress,
 			ReferenceDetails fromCountryReference, ReferenceDetails indiaCountryReference, List<Document> documents,
 			PaymentDetails payment, Date date) {
-		this.appid = appid;
+		this.id = appid;
 		this.visa = visa;
 		this.personal = personal;
 		this.passport = passport;
@@ -70,12 +74,14 @@ public class Application {
 		this.date = date;
 	}
 
-	public int getAppid() {
-		return appid;
+	public String getId() {
+		return id;
 	}
-	public void setAppid(int appid) {
-		this.appid = appid;
+
+	public void setId(String id) {
+		this.id = id;
 	}
+
 	public VisaDetails getVisa() {
 		return visa;
 	}
@@ -162,7 +168,7 @@ public class Application {
 	}
 	@Override
 	public String toString() {
-		return "Application [appid=" + appid + ", visa=" + visa + ", personal=" + personal + ", passport=" + passport
+		return "Application [appid=" + id + ", visa=" + visa + ", personal=" + personal + ", passport=" + passport
 				+ ", contact=" + contact + ", familyMembers=" + familyMembers + ", lastVisaAppId=" + lastVisaAppId
 				+ ", lastVisitedCities=" + lastVisitedCities + ", occupation=" + occupation + ", resiAddress="
 				+ resiAddress + ", fromCountryReference=" + fromCountryReference + ", indiaCountryReference="

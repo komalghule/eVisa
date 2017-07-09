@@ -2,24 +2,32 @@ package app.visa.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import app.visa.model.ApplicationFormModel;
+import app.visa.pojo.Application;
 import app.visa.pojo.Country;
 import app.visa.pojo.Visa;
+import app.visa.service.ApplicationService;
 import app.visa.service.CenterService;
 import app.visa.service.VisaService;
+import javassist.tools.rmi.AppletServer;
 
 @Controller
 public class ApplicationController {
 	@Autowired
 	CenterService centerService;
-	
 	@Autowired
 	VisaService visaService;
+	@Autowired
+	ApplicationService appService;
 	
 	@RequestMapping("/countries")
 	public @ResponseBody List<Country> getCountries(){		
@@ -40,8 +48,28 @@ public class ApplicationController {
 		return "onlinevisaaplication";
 	}
 
+	@RequestMapping("/appForm")
+	public String showAppForm( ApplicationFormModel formModel,HttpSession session ){
+		System.out.println(formModel);
+		Application application = new Application();
+
+		application.getVisa().setFromCountry( formModel.getCountry());
+		application.getVisa().setIndianMission( formModel.getCenter() );
+		application.getPersonal().setNationality(formModel.getNatinality());
+		application.getPersonal().setBirth(formModel.getBirthDate());
+		application.getContact().setEmail(formModel.getEmail());
+		application.getVisa().setArrivalDate(formModel.getArrivalDate());
+		application.getVisa().setVisaType(formModel.getVisaType());
+		application.getVisa().setPurpose(formModel.getPurpose());
+		appService.saveApp(application);
+		System.out.println(application);
+		session.setAttribute("visaApplication", application);
+		return "ApplicationForm";
+	}
+
 	@RequestMapping("/filledPartialyForm")
 	public String showRemainsForm(){
+		
 		return "PartialyFilledForm";
 	}
 	
@@ -50,10 +78,6 @@ public class ApplicationController {
 		return "PrintApplicationForm";
 	}
 	
-	@RequestMapping("/appForm")
-	public String showAppForm(){
-		return "ApplicationForm";
-	}
 	
 	@RequestMapping("/applicantDetailForm")
 	public String detailedForm(){

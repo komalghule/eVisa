@@ -10,12 +10,6 @@ public class VisaDetails {
 	@Field
 	private String indianMission;
 	@Field
-	private String nationality;
-	@Field
-	private Date birthDate;
-	@Field
-	private String email;
-	@Field
 	private Date arrivalDate;
 	@Field
 	private String visaType;
@@ -31,19 +25,15 @@ public class VisaDetails {
 	private String arrivalPort;
 	@Field
 	private String exitPort;
-	@Field
-	private String visitPurpose;
+
 	public VisaDetails() {
-		this("","","",new Date(),"",new Date(),"","",0,0,new Date(),"","","");
+		this("","",new Date(),"","",0,0,new Date(),"","");
 	}
-	public VisaDetails(String fromCountry, String indianMission, String nationality, Date birthDate, String email,
+	public VisaDetails(String fromCountry, String indianMission,
 			Date arrivalDate, String visaType, String purpose, int visaPeriod, int entries, Date journeyDate,
-			String arrivalPort, String exitPort, String visitPurpose) {
+			String arrivalPort, String exitPort) {
 		this.fromCountry = fromCountry;
 		this.indianMission = indianMission;
-		this.nationality = nationality;
-		this.birthDate = birthDate;
-		this.email = email;
 		this.arrivalDate = arrivalDate;
 		this.visaType = visaType;
 		this.purpose = purpose;
@@ -52,7 +42,6 @@ public class VisaDetails {
 		this.journeyDate = journeyDate;
 		this.arrivalPort = arrivalPort;
 		this.exitPort = exitPort;
-		this.visitPurpose = visitPurpose;
 	}
 
 	public String getFromCountry() {
@@ -69,30 +58,6 @@ public class VisaDetails {
 
 	public void setIndianMission(String indianMission) {
 		this.indianMission = indianMission;
-	}
-
-	public String getNationality() {
-		return nationality;
-	}
-
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
-	}
-
-	public Date getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 	public Date getArrivalDate() {
@@ -159,21 +124,13 @@ public class VisaDetails {
 		this.exitPort = exitPort;
 	}
 
-	public String getVisitPurpose() {
-		return visitPurpose;
-	}
-
-	public void setVisitPurpose(String visitPurpose) {
-		this.visitPurpose = visitPurpose;
-	}
-
 	@Override
 	public String toString() {
-		return "VisaDetails [fromCountry=" + fromCountry + ", indianMission=" + indianMission + ", nationality="
-				+ nationality + ", birthDate=" + birthDate + ", email=" + email + ", arrivalDate=" + arrivalDate
+		return "VisaDetails [fromCountry=" + fromCountry + ", indianMission=" + indianMission 
+				+ ", arrivalDate=" + arrivalDate
 				+ ", visaType=" + visaType + ", purpose=" + purpose + ", visaPeriod=" + visaPeriod + ", entries="
 				+ entries + ", journeyDate=" + journeyDate + ", arrivalPort=" + arrivalPort + ", exitPort=" + exitPort
-				+ ", visitPurpose=" + visitPurpose + "]";
+				+ "]";
 	}
 
 }

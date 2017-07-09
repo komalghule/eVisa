@@ -41,7 +41,7 @@ div
 
 <body>
 	
-	<form action="home.html" method="POST" role="form">
+	<form action="applicantDetailForm" method="POST" role="form">
    <center> <legend >Applicant Details Form</legend></center>
 <div>
 						<div>
@@ -163,8 +163,8 @@ div
 					</div><br/>
 				
 					<center>
-						<input type="submit" class="btn btn-default" formaction="applicantDetailForm" value="Save and Continue"/>
-						<input type="submit" class="btn btn-default" value="Save and Temporary Exit"/>
+						<input type="submit" class="btn btn-default" value="Save and Temporary Exit" formaction="home.html"/>
+						<input type="submit" class="btn btn-default" value="Save and Continue"/>
 					</center>
 						
 					
