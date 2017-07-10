@@ -1,5 +1,6 @@
 package app.visa.controller;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import app.visa.model.ApplicationFormModel;
 import app.visa.model.PassportFormDetail;
 import app.visa.pojo.Application;
 import app.visa.pojo.Country;
+import app.visa.pojo.FamilyDetails;
 import app.visa.pojo.Visa;
 import app.visa.service.ApplicationService;
 import app.visa.service.CenterService;
@@ -72,8 +74,8 @@ public class ApplicationController {
 		application.getVisa().setVisaType(formModel.getVisaType());
 		application.getVisa().setPurpose(formModel.getPurpose());
 		appService.saveApp(application);
-		System.out.println("------form1--------");
-		System.out.println(application);
+		//System.out.println("------form1--------");
+		//System.out.println(application);
 		session.setAttribute("visaApplication", application);
 		
 		PassportFormDetail passportFormDetail = new PassportFormDetail();
@@ -121,16 +123,82 @@ public class ApplicationController {
 		application.getPassport().setPassportCountry(passportFormDetail.getIssueCountry());
 		//insert/update into database
 		appService.saveApp(application);
-		System.out.println("------form2--------");
-		System.out.println(application);
+		//System.out.println("------form2--------");
+		//System.out.println(application);
+		ApplicantDetailsForm applicantDetailsForm = new ApplicantDetailsForm();
+		applicantDetailsForm.setEmail(application.getContact().getEmail());
 		
-		map.addAttribute("command", new ApplicantDetailsForm());
+		
+		applicantDetailsForm.setHouseNo("1234567890");
+		applicantDetailsForm.setCity("Junnar");
+		applicantDetailsForm.setState("Maharashtra");
+		applicantDetailsForm.setCountry("India");
+		applicantDetailsForm.setMobileNo("1234567890");
+		applicantDetailsForm.setpHouseNo("1234567890");
+		applicantDetailsForm.setpCity("Junnar");
+		applicantDetailsForm.setpState("Maharashtra");
+		applicantDetailsForm.setpCountry("India");
+		applicantDetailsForm.setFatherName("Kailas");
+		applicantDetailsForm.setFatherBirthPlace("Junnar");
+		applicantDetailsForm.setFatherBirthCountry("India");
+		applicantDetailsForm.setFatherNationality("Indian");
+		applicantDetailsForm.setFatherPrevNationality("India");
+		applicantDetailsForm.setMotherName("Aasha");
+		applicantDetailsForm.setMotherBirthPlace("Junnar");
+		applicantDetailsForm.setMotherBirthCountry("India");
+		applicantDetailsForm.setMotherNationality("Indian");
+		applicantDetailsForm.setMotherPrevNationality("Indian");
+		applicantDetailsForm.setOccupation("Student");
+		applicantDetailsForm.setBusiness("Farming");
+		applicantDetailsForm.setDesignation("Student");
+		applicantDetailsForm.setAddress("address");
+		applicantDetailsForm.setMobile("1234567890");
+		applicantDetailsForm.setPrevOccupation("nothing");
+		
+		
+		map.addAttribute("command",applicantDetailsForm);
 		return "ApplicantDetailForm";
 	}
 
 	@RequestMapping("/docUpload")
-	public String uploadDocs(ApplicantDetailsForm applicantDetailsForm){
+	public String uploadDocs(ApplicantDetailsForm applicantDetailsForm,HttpSession session){
+		System.out.println("--------------applicantDetailsForm------------");
+		System.out.println(applicantDetailsForm);
 		
+		Application application = (Application) session.getAttribute("visaApplication");
+		application.getContact().setMobile(applicantDetailsForm.getMobileNo());
+		application.getPersonal().setMaritalStatus(applicantDetailsForm.getMarriedStatus());
+		
+		FamilyDetails fatherDetails = new FamilyDetails();
+		
+		FamilyDetails motherDetails = new FamilyDetails();
+		List<FamilyDetails> listFamilyDetails = new ArrayList<>();
+		listFamilyDetails.add(fatherDetails);
+		listFamilyDetails.add(motherDetails);
+		application.setFamilyMembers(listFamilyDetails);
+
+		
+		
+		fatherDetails.setName(applicantDetailsForm.getFatherName());
+		fatherDetails.setBirthCity(applicantDetailsForm.getFatherBirthPlace());
+		fatherDetails.setBirthCountry(applicantDetailsForm.getCountry());
+		fatherDetails.setNationality(applicantDetailsForm.getFatherNationality());
+		fatherDetails.setPrevNationality(applicantDetailsForm.getFatherPrevNationality());
+		
+		motherDetails.setName(applicantDetailsForm.getMotherName());
+		motherDetails.setBirthCity(applicantDetailsForm.getMotherBirthPlace());
+		motherDetails.setBirthCountry(applicantDetailsForm.getMotherBirthCountry());
+		motherDetails.setNationality(applicantDetailsForm.getMotherNationality());
+		motherDetails.setPrevNationality(applicantDetailsForm.getMotherPrevNationality());
+		
+		
+		application.getOccupation().setBusiness(applicantDetailsForm.getBusiness());
+		application.getOccupation().setDesignation(applicantDetailsForm.getDesignation());
+		application.getOccupation().setPastOccupation(applicantDetailsForm.getPrevOccupation());
+		application.getOccupation().setPhone(applicantDetailsForm.getMobile());
+		application.getOccupation().setFromPoliceMilitary(applicantDetailsForm.getFromPoliceMilitary());
+		System.out.println("=========final Application=========");
+		System.out.println(application);
 		return "DocsUpload";
 	}
 
@@ -144,20 +212,12 @@ public class ApplicationController {
 		return "PrintApplicationForm";
 	}
 	
-	
-	
-	
 	@RequestMapping("/upload")
 	public String showUpload(){
-		return "Register";
+		return "home";
 	}
 	
 	@RequestMapping("/payment")
-	public String showPayment(){
-		return "PaymentDetails";
-	}
-
-	@RequestMapping("/pay")
 	public String makePayment(){
 		return "MakePayment";
 	}

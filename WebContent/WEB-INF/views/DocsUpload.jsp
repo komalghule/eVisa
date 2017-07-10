@@ -41,7 +41,7 @@ div
 
 <body>
 	
-	<form action="upload">
+	<form action="payment">
          
 						<legend><h4 style="text-decoration:darkorchid ">Upload Documents</h4></legend>
 
@@ -90,14 +90,15 @@ div
                     </tr>
                 </tbody>
             </table><br/>
-                 <center>
-						<a class="btn btn-default">Upload Documents</a>
-						<a class="btn btn-default" href="payment">Continue</a>
-					
-                    
-					</center>
-        </form>
-        
-
+<!--             <div>
+            	<input type="submit" class="btn btn-default" formaction="upload" value="Upload and Temporary Exit"></input>
+            	<input type="submit" class="btn btn-default" value="save and Continue"/>
+            </div>
+ -->
+		<center>
+           	<input type="submit" class="btn btn-default" formaction="upload" value="Upload and Temporary Exit"></input>
+           	<input type="submit" class="btn btn-default" value="save and Continue"/>
+		</center>
+	</form>
 </body>
 </html>

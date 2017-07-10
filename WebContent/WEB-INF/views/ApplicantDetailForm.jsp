@@ -210,7 +210,13 @@ div {
 							<option>Business</option>
 							<option>NA</option>
 					</form:select></td>
-				</tr>			
+				</tr>	
+				<tr>
+					<td>You are from Police Military </td>
+					<td>
+						<form:checkbox path="fromPoliceMilitary"/>
+					</td>
+				</tr>		
 				<tr>
 					<td></td>
 					<td>

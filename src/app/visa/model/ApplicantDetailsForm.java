@@ -1,17 +1,13 @@
 package app.visa.model;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class ApplicantDetailsForm {
 	private String houseNo;
 	private String city;
 	private String state;
 	private String Country;
-	private String mobileNo;
+	private String mobileNo;//ContactDetails.mobile
 	private String email;
-	private String marriedStatus;
+	private String marriedStatus;//PersonalDetails.maritalStatus
 	
 	private String pHouseNo;
 	private String pCity;
@@ -23,17 +19,12 @@ public class ApplicantDetailsForm {
 	private String fatherPrevNationality;
 	private String fatherBirthPlace;
 	private String fatherBirthCountry;
-	@DateTimeFormat(pattern="dd/MM/yyyy")
-	private Date fatherBirthDate;
 	
 	private String motherName;
 	private String motherNationality;
 	private String motherPrevNationality;
 	private String motherBirthPlace;
 	private String motherBirthCountry;
-	@DateTimeFormat(pattern="dd/MM/yyyy")
-	private Date motherBirthDate;
-
 	
 	private String occupation;
 	private String gardian;
@@ -43,18 +34,20 @@ public class ApplicantDetailsForm {
 	private String mobile;
 	private String prevOccupation;
 	
+	private boolean fromPoliceMilitary;
+	
 	public ApplicantDetailsForm() {
-		this("","","","","","","","","","","","","","","","",new Date(),"","","","","",new Date(),"","","","","","","");
+		this("","","","","","","","","","","","","","","","","","","","","","","","","","","","",false);
 	}
 	
 
 	public ApplicantDetailsForm(String houseNo, String city, String state, String country, String mobileNo,
 			String email, String marriedStatus, String pHouseNo, String pCity, String pState, String pCountry,
 			String fatherName, String fatherNationality, String fatherPrevNationality, String fatherBirthPlace,
-			String fatherBirthCountry, Date fatherBirthDate, String motherName, String motherNationality,
-			String motherPrevNationality, String motherBirthPlace, String motherBirthCountry, Date motherBirthDate,
+			String fatherBirthCountry, String motherName, String motherNationality,
+			String motherPrevNationality, String motherBirthPlace, String motherBirthCountry,
 			String occupation, String gardian, String business, String designation, String address, String mobile,
-			String prevOccupation) {
+			String prevOccupation,boolean fromPoliceMilitary) {
 		this.houseNo = houseNo;
 		this.city = city;
 		this.state = state;
@@ -71,13 +64,11 @@ public class ApplicantDetailsForm {
 		this.fatherPrevNationality = fatherPrevNationality;
 		this.fatherBirthPlace = fatherBirthPlace;
 		this.fatherBirthCountry = fatherBirthCountry;
-		this.fatherBirthDate = fatherBirthDate;
 		this.motherName = motherName;
 		this.motherNationality = motherNationality;
 		this.motherPrevNationality = motherPrevNationality;
 		this.motherBirthPlace = motherBirthPlace;
 		this.motherBirthCountry = motherBirthCountry;
-		this.motherBirthDate = motherBirthDate;
 		this.occupation = occupation;
 		this.gardian = gardian;
 		this.business = business;
@@ -85,6 +76,7 @@ public class ApplicantDetailsForm {
 		this.address = address;
 		this.mobile = mobile;
 		this.prevOccupation = prevOccupation;
+		this.fromPoliceMilitary = fromPoliceMilitary;
 	}
 
 
@@ -178,12 +170,6 @@ public class ApplicantDetailsForm {
 	public void setFatherBirthPlace(String fatherBirthPlace) {
 		this.fatherBirthPlace = fatherBirthPlace;
 	}
-	public Date getFatherBirthDate() {
-		return fatherBirthDate;
-	}
-	public void setFatherBirthDate(Date fatherBirthDate) {
-		this.fatherBirthDate = fatherBirthDate;
-	}
 	public String getMotherName() {
 		return motherName;
 	}
@@ -207,12 +193,6 @@ public class ApplicantDetailsForm {
 	}
 	public void setMotherBirthPlace(String motherBirthPlace) {
 		this.motherBirthPlace = motherBirthPlace;
-	}
-	public Date getMotherBirthDate() {
-		return motherBirthDate;
-	}
-	public void setMotherBirthDate(Date motherBirthDate) {
-		this.motherBirthDate = motherBirthDate;
 	}
 	public String getOccupation() {
 		return occupation;
@@ -276,6 +256,15 @@ public class ApplicantDetailsForm {
 		this.motherBirthCountry = motherBirthCountry;
 	}
 
+	public boolean getFromPoliceMilitary() {
+		return fromPoliceMilitary;
+	}
+
+
+	public void setFromPoliceMilitary(boolean fromPoliceMilitary) {
+		this.fromPoliceMilitary = fromPoliceMilitary;
+	}
+
 
 	@Override
 	public String toString() {
@@ -283,12 +272,12 @@ public class ApplicantDetailsForm {
 				+ Country + ", mobileNo=" + mobileNo + ", email=" + email + ", marriedStatus=" + marriedStatus
 				+ ", pHouseNo=" + pHouseNo + ", pCity=" + pCity + ", pState=" + pState + ", pCountry=" + pCountry
 				+ ", fatherName=" + fatherName + ", fatherNationality=" + fatherNationality + ", fatherPrevNationality="
-				+ fatherPrevNationality + ", fatherBirthPlace=" + fatherBirthPlace + ", fatherBirthDate="
-				+ fatherBirthDate + ", motherName=" + motherName + ", motherNationality=" + motherNationality
+				+ fatherPrevNationality + ", fatherBirthPlace=" + fatherBirthPlace + ", fatherBirthCountry="
+				+ fatherBirthCountry + ", motherName=" + motherName + ", motherNationality=" + motherNationality
 				+ ", motherPrevNationality=" + motherPrevNationality + ", motherBirthPlace=" + motherBirthPlace
-				+ ", motherBirthDate=" + motherBirthDate + ", occupation=" + occupation + ", gardian=" + gardian
+				+ ", motherBirthCountry=" + motherBirthCountry + ", occupation=" + occupation + ", gardian=" + gardian
 				+ ", business=" + business + ", designation=" + designation + ", address=" + address + ", mobile="
-				+ mobile + ", prevOccupation=" + prevOccupation + "]";
+				+ mobile + ", prevOccupation=" + prevOccupation + ", fromPoliceMilitary=" + fromPoliceMilitary + "]";
 	}
 		
 }
