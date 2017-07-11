@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title></title>
+<title>Online Visa Application Form</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="bootstrap/csspages/a.css" />
@@ -91,8 +91,8 @@
 			<div id="inner">
 
 				<div>
-					<label>Country you are applying visa from :</label> <form:select path="country"
-						id="drpCountry" class="form-control"/>
+					<label>Country you are applying visa from :</label> 
+					<form:select path="country" id="drpCountry" class="form-control"/>
 				</div>
 				<br>
 				<div>

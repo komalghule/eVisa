@@ -1,7 +1,8 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>Confirm Details</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
       
@@ -17,18 +18,24 @@
 }
 
 </style>
-
-
 </head>
 
 <body>
+<form:form action="confirmation" modelAttribute="command">
 	<div class = "Header">
 	<h3>Confirm Details</h3>
 	</div>
 	<br/>
 	<br/>
-	<a class="btn btn-default" href="confirmation">Verified and Continue</a>
-	<a class="btn btn-default" href="applicantDetailForm">Modify</a>
+	<center>
+		
+		<input type="submit" class="btn btn-default" formaction="applicantDetailForm" value="Modify"/>	
+		<input type="submit" class="btn btn-default" value="Verified and Continue"/>
+	</center>
+		
+	<!-- <a class="btn btn-default" href="confirmation">Verified and Continue</a> -->
+	<!-- <a class="btn btn-default" href="applicantDetailForm">Modify</a> -->
+</form:form>
 </body>
 
 

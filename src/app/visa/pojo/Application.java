@@ -9,8 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 @Document(collection="applications")
 public class Application {
 	
@@ -39,7 +37,7 @@ public class Application {
 	@Field
 	private ReferenceDetails indiaCountryReference;
 	@Field
-	private List<Document> documents;
+	private List<UploadDocument> documents;
 	@Field
 	private PaymentDetails payment;
 	@Field
@@ -55,7 +53,7 @@ public class Application {
 	public Application(String appid, VisaDetails visa, PersonalDetails personal, PassportDetails passport,
 			ContactDetails contact, List<FamilyDetails> familyMembers, String lastVisaAppId,
 			List<String> lastVisitedCities, OccupationDetails occupation, Address resiAddress,
-			ReferenceDetails fromCountryReference, ReferenceDetails indiaCountryReference, List<Document> documents,
+			ReferenceDetails fromCountryReference, ReferenceDetails indiaCountryReference, List<UploadDocument> documents,
 			PaymentDetails payment, Date date) {
 		this.id = appid;
 		this.visa = visa;
@@ -148,10 +146,10 @@ public class Application {
 	public void setIndiaCountryReference(ReferenceDetails indiaCountryReference) {
 		this.indiaCountryReference = indiaCountryReference;
 	}
-	public List<Document> getDocuments() {
+	public List<UploadDocument> getDocuments() {
 		return documents;
 	}
-	public void setDocuments(List<Document> documents) {
+	public void setDocuments(List<UploadDocument> documents) {
 		this.documents = documents;
 	}
 	public PaymentDetails getPayment() {

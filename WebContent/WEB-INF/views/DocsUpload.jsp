@@ -1,7 +1,8 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>Upload Docs</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
       
@@ -41,15 +42,11 @@ div
 
 <body>
 	
-	<form action="payment">
-         
-						<legend><h4 style="text-decoration:darkorchid ">Upload Documents</h4></legend>
-
-                        <div><h5 style="color: firebrick">Please Note Down the Temporary Application Id:<h5></div>
+	<form:form action="payment" modelAttribute="command"  >
+			<legend><h4 style="text-decoration:darkorchid ">Upload Documents</h4></legend>
+           	<div><h5 style="color: firebrick">Please Note Down the Temporary Application Id:<form:input path="applicationFromId" /><h5></div>
             <table>
                 <tbody>
-                    
-                   
                      <tr>
                         <td>Choose Photo</td>
                         <td><input type="file"></td>
@@ -78,15 +75,9 @@ div
                         <td>Choose Doc6</td>
                         <td><input type="file"></td>
                     </tr>
-                   <br>
                     <tr>
                         <td></td>
-                    
-                        <td>
-               
-						
-                        </td>
-                        
+                        <td></td>
                     </tr>
                 </tbody>
             </table><br/>
@@ -99,6 +90,6 @@ div
            	<input type="submit" class="btn btn-default" formaction="upload" value="Upload and Temporary Exit"></input>
            	<input type="submit" class="btn btn-default" value="save and Continue"/>
 		</center>
-	</form>
+	</form:form>
 </body>
 </html>

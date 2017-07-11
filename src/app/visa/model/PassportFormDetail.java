@@ -8,6 +8,7 @@ public class PassportFormDetail {
 	private String applicationFormId;
 	private String lastName;
 	private String firstName;
+	private String prevName;
 	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date birthDate;
 	private String birthCity;
@@ -27,16 +28,17 @@ public class PassportFormDetail {
 	private Date expiryDate;
 	
 	public PassportFormDetail() {
-		this("","","",new Date(),"","","","","","","",false,"","","",new Date(),new Date());
+		this("","","","",new Date(),"","","","","","","",false,"","","",new Date(),new Date());
 	}
 	
-	public PassportFormDetail(String applicationFormId, String lastName, String firstName, Date birthDate,
+	public PassportFormDetail(String applicationFormId, String lastName, String firstName, String prevName, Date birthDate,
 			String birthCity, String birthCountry, String gender, String nationalId, String religion,
 			String visibleIdMark, String qualification, boolean isTwoYearsMoreLiveForFromCountry, String passportNo,
 			String issueCity, String issueCountry, Date issueDate, Date expiryDate) {
 		this.applicationFormId = applicationFormId;
 		this.lastName = lastName;
 		this.firstName = firstName;
+		this.prevName = prevName;
 		this.birthDate = birthDate;
 		this.birthCity = birthCity;
 		this.birthCountry = birthCountry;
@@ -172,31 +174,33 @@ public class PassportFormDetail {
 	public void setIssueCountry(String issueCountry) {
 		this.issueCountry = issueCountry;
 	}
-
 	public Date getIssueDate() {
 		return issueDate;
 	}
-
 	public void setIssueDate(Date issueDate) {
 		this.issueDate = issueDate;
 	}
-
 	public Date getExpiryDate() {
 		return expiryDate;
 	}
-
 	public void setExpiryDate(Date expiryDate) {
 		this.expiryDate = expiryDate;
 	}
-
+	public String getPrevName() {
+		return prevName;
+	}
+	public void setPrevName(String prevName) {
+		this.prevName = prevName;
+	}
 	@Override
 	public String toString() {
 		return "PassportFormDetail [applicationFormId=" + applicationFormId + ", lastName=" + lastName + ", firstName="
-				+ firstName + ", birthDate=" + birthDate + ", birthCity=" + birthCity + ", birthCountry=" + birthCountry
-				+ ", gender=" + gender + ", nationalId=" + nationalId + ", religion=" + religion + ", visibleIdMark="
-				+ visibleIdMark + ", qualification=" + qualification + ", isTwoYearsMoreLiveForFromCountry="
-				+ twoYearsMoreLiveForFromCountry + ", passportNo=" + passportNo + ", issueCity=" + issueCity
-				+ ", issueCountry=" + issueCountry + ", issueDate=" + issueDate + ", expiryDate=" + expiryDate + "]";
+				+ firstName + ", prevName=" + prevName + ", birthDate=" + birthDate + ", birthCity=" + birthCity
+				+ ", birthCountry=" + birthCountry + ", gender=" + gender + ", nationalId=" + nationalId + ", religion="
+				+ religion + ", visibleIdMark=" + visibleIdMark + ", qualification=" + qualification
+				+ ", twoYearsMoreLiveForFromCountry=" + twoYearsMoreLiveForFromCountry + ", passportNo=" + passportNo
+				+ ", issueCity=" + issueCity + ", issueCountry=" + issueCountry + ", issueDate=" + issueDate
+				+ ", expiryDate=" + expiryDate + "]";
 	}
 	
 }

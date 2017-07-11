@@ -1,7 +1,8 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title></title>
+<title>Make Payment</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,24 +47,29 @@ div {
 	private Date paymentDate;
 	private String paymentMode;
  -->
-	<form action="confirmDetails">
+	<form:form action="confirmDetails" modelAttribute="command">
 		<legend><h4 align="center">Make Payment</h4></legend>
+		<div>Please Note Down the Temporary Application Id:<form:input path="applicationFormId"/></div>
 		<table>
 			<tbody>
 				<tr style="column-span: 10px">
+					<td>Transaction Id : </td>
+					<td><form:input type="text" placeholder="Enter amount here..." path="transactionId"/></td>
+				</tr>				
+				<tr style="column-span: 10px">
 					<td>Enter Amount : </td>
-					<td><input type="text" placeholder="Enter amount here..."></td>
+					<td><form:input type="text" placeholder="Enter amount here..." path="amount"/></td>
 				</tr>
 				<tr>
 					<td>Enter Date : </td>
-					<td><input  type="date" placeholder="Enter date..."></td>
+					<td><form:input  type="date" placeholder="Enter date..." path="date"/></td>
 				</tr>
 				<tr>
 					<td>Payment Mode: </td>
-					<td><select >
+					<td><form:select path="paymentMode" >
 						<option>CreditOrDebit</option>
 						<option>NetBanking</option>
-					</select></td>
+					</form:select></td>
 				</tr>
 			</tbody>
 		</table><br/><br/><br/>
@@ -71,6 +77,6 @@ div {
 			<input type="submit" formaction="home" value="Exit"/>
 			<input type="submit" value="Pay and Continue"/>
 		</center>
-	</form>
+	</form:form>
 </body>
 </html>

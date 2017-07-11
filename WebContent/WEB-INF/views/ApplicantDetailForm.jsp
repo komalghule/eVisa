@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title></title>
+<title>Applicant Details Form</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -42,11 +42,17 @@ div {
 
 <body>
 
-	<form:form action="docUpload" modelAttribute="command">
+	<form:form action="visaSought" modelAttribute="command">
 		<center><legend>Applicant Details Form</legend></center>
-		<div>Please Note Down the Temporary Application Id:</div><br/>		
-		<legend><h4 style="text-decoration: darkorchid">Applicant Address Details</h4></legend>
+		<div>Please Note Down the Temporary Application Id:<form:input path="applicationFormId"/></div>	
 		<table>
+			<thead>
+				<tr>
+				         	<th></th>
+				         	<th><th>	
+			</tr>
+			</thead>
+		<legend><h4 style="text-decoration: darkorchid">Applicant Address Details</h4></legend>
 			<tbody>
 				<tr>
 					<td><h5 style="color: crimson">Present Address:</h5></td>
@@ -73,6 +79,10 @@ div {
 							<option>Japan</option>
 							<option>Bhutan</option>
 					</form:select></td>
+				</tr>
+				<tr>
+					<td>Pin Code :</td>
+					<td><form:input path="pinCode" pattern="[0-9]{6}"/></td>
 				</tr>
 				<tr>
 					<td>Mobile NO:</td>

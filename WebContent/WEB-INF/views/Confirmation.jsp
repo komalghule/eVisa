@@ -1,7 +1,8 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>Confirmation</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
       
@@ -31,14 +32,16 @@
 */
 </style>
 <body>
+<form:form action="printForm" >
 	<div class="top">
 		<h3>Confirmation</h3>
 		<br/>
 		<br/>
-	
-		<li>Applicant Name : </li>
-		<li>Applicant Id : </li>
-		</br>
+		<ol>
+			<li>Applicant Name : <form:input path="applicantName"/></li>
+			<li>Applicant Id : <form:input path="applicationFormId"/></li>
+		</ol>
+		
 		<div>
 			<p>Your Application is submitted successfully.Please take a print of the Application form in PDF format and submmit it to conserning Indian Mission or Agency for processing of visa application.
 			</p>
@@ -55,8 +58,9 @@
 		</div><br/><br/> 	
 	
 	</div>
-	<a class="btn btn-default" href="printForm1">Print Form</a>
-
+	<input type="submit" value="Print Form">
+	<!-- <a class="btn btn-default" href="printForm1">Print Form</a> -->
+</form:form>
 </body>
 
 </html>

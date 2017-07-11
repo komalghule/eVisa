@@ -16,6 +16,8 @@ public class VisaDetails {
 	@Field
 	private String purpose;
 	@Field
+	private String visitPlace;
+	@Field
 	private int visaPeriod;
 	@Field
 	private int entries;
@@ -27,16 +29,17 @@ public class VisaDetails {
 	private String exitPort;
 
 	public VisaDetails() {
-		this("","",new Date(),"","",0,0,new Date(),"","");
+		this("","",new Date(),"","","",0,0,new Date(),"","");
 	}
 	public VisaDetails(String fromCountry, String indianMission,
-			Date arrivalDate, String visaType, String purpose, int visaPeriod, int entries, Date journeyDate,
+			Date arrivalDate, String visaType, String purpose,String visitPlace, int visaPeriod, int entries, Date journeyDate,
 			String arrivalPort, String exitPort) {
 		this.fromCountry = fromCountry;
 		this.indianMission = indianMission;
 		this.arrivalDate = arrivalDate;
 		this.visaType = visaType;
 		this.purpose = purpose;
+		this.visitPlace = visitPlace;
 		this.visaPeriod = visaPeriod;
 		this.entries = entries;
 		this.journeyDate = journeyDate;
@@ -124,13 +127,17 @@ public class VisaDetails {
 		this.exitPort = exitPort;
 	}
 
+	public String getVisitPlace() {
+		return visitPlace;
+	}
+	public void setVisitPlace(String visitPlace) {
+		this.visitPlace = visitPlace;
+	}
 	@Override
 	public String toString() {
-		return "VisaDetails [fromCountry=" + fromCountry + ", indianMission=" + indianMission 
-				+ ", arrivalDate=" + arrivalDate
-				+ ", visaType=" + visaType + ", purpose=" + purpose + ", visaPeriod=" + visaPeriod + ", entries="
-				+ entries + ", journeyDate=" + journeyDate + ", arrivalPort=" + arrivalPort + ", exitPort=" + exitPort
-				+ "]";
+		return "VisaDetails [fromCountry=" + fromCountry + ", indianMission=" + indianMission + ", arrivalDate="
+				+ arrivalDate + ", visaType=" + visaType + ", purpose=" + purpose + ", visitPlace=" + visitPlace
+				+ ", visaPeriod=" + visaPeriod + ", entries=" + entries + ", journeyDate=" + journeyDate
+				+ ", arrivalPort=" + arrivalPort + ", exitPort=" + exitPort + "]";
 	}
-
 }

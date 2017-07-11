@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>Application Form</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
       
@@ -55,12 +55,14 @@ div
 						<label>Surname(as per passport):</label><br/>
 						<form:input type="text" path="lastName" />
 					</div>
-					
 					<div>
 						<label>Given Name(as per passport):</label><br/>
 						<form:input type="text" path="firstName"/>
 					</div><br/>
-					
+					<div>
+						<label>Previous Name :</label><br/>
+						<form:input type="text" path="prevName" />
+					</div>					
 					<div class="form-date-w3-agileits">
 						<label><i class="fa fa-calendar" aria-hidden="true"></i> Date of birth :</label><br/>
 						<form:input  id="datepicker1" name="Text" type="text" path="birthDate" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"/>

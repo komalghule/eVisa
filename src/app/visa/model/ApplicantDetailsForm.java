@@ -1,10 +1,12 @@
 package app.visa.model;
 
 public class ApplicantDetailsForm {
+	private String applicationFormId;
 	private String houseNo;
 	private String city;
 	private String state;
 	private String Country;
+	private String pinCode;
 	private String mobileNo;//ContactDetails.mobile
 	private String email;
 	private String marriedStatus;//PersonalDetails.maritalStatus
@@ -37,21 +39,23 @@ public class ApplicantDetailsForm {
 	private boolean fromPoliceMilitary;
 	
 	public ApplicantDetailsForm() {
-		this("","","","","","","","","","","","","","","","","","","","","","","","","","","","",false);
+		this("","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",false);
 	}
 	
 
-	public ApplicantDetailsForm(String houseNo, String city, String state, String country, String mobileNo,
+	public ApplicantDetailsForm(String applicationFormId,String houseNo, String city, String state, String country, String pinCode, String mobileNo,
 			String email, String marriedStatus, String pHouseNo, String pCity, String pState, String pCountry,
 			String fatherName, String fatherNationality, String fatherPrevNationality, String fatherBirthPlace,
 			String fatherBirthCountry, String motherName, String motherNationality,
 			String motherPrevNationality, String motherBirthPlace, String motherBirthCountry,
 			String occupation, String gardian, String business, String designation, String address, String mobile,
 			String prevOccupation,boolean fromPoliceMilitary) {
+		this.applicationFormId = applicationFormId;
 		this.houseNo = houseNo;
 		this.city = city;
 		this.state = state;
 		Country = country;
+		this.pinCode = pinCode;
 		this.mobileNo = mobileNo;
 		this.email = email;
 		this.marriedStatus = marriedStatus;
@@ -77,6 +81,15 @@ public class ApplicantDetailsForm {
 		this.mobile = mobile;
 		this.prevOccupation = prevOccupation;
 		this.fromPoliceMilitary = fromPoliceMilitary;
+	}
+
+	public String getApplicationFormId() {
+		return applicationFormId;
+	}
+
+
+	public void setApplicationFormId(String applicationFormId) {
+		this.applicationFormId = applicationFormId;
 	}
 
 
@@ -265,19 +278,29 @@ public class ApplicantDetailsForm {
 		this.fromPoliceMilitary = fromPoliceMilitary;
 	}
 
+	public String getPinCode() {
+		return pinCode;
+	}
+
+
+	public void setPinCode(String pinCode) {
+		this.pinCode = pinCode;
+	}
+
 
 	@Override
 	public String toString() {
-		return "ApplicantDetailsForm [houseNo=" + houseNo + ", city=" + city + ", state=" + state + ", Country="
-				+ Country + ", mobileNo=" + mobileNo + ", email=" + email + ", marriedStatus=" + marriedStatus
-				+ ", pHouseNo=" + pHouseNo + ", pCity=" + pCity + ", pState=" + pState + ", pCountry=" + pCountry
-				+ ", fatherName=" + fatherName + ", fatherNationality=" + fatherNationality + ", fatherPrevNationality="
-				+ fatherPrevNationality + ", fatherBirthPlace=" + fatherBirthPlace + ", fatherBirthCountry="
-				+ fatherBirthCountry + ", motherName=" + motherName + ", motherNationality=" + motherNationality
-				+ ", motherPrevNationality=" + motherPrevNationality + ", motherBirthPlace=" + motherBirthPlace
-				+ ", motherBirthCountry=" + motherBirthCountry + ", occupation=" + occupation + ", gardian=" + gardian
-				+ ", business=" + business + ", designation=" + designation + ", address=" + address + ", mobile="
-				+ mobile + ", prevOccupation=" + prevOccupation + ", fromPoliceMilitary=" + fromPoliceMilitary + "]";
+		return "ApplicantDetailsForm [applicationFormId=" + applicationFormId + ", houseNo=" + houseNo + ", city="
+				+ city + ", state=" + state + ", Country=" + Country + ", pinCode=" + pinCode + ", mobileNo=" + mobileNo
+				+ ", email=" + email + ", marriedStatus=" + marriedStatus + ", pHouseNo=" + pHouseNo + ", pCity="
+				+ pCity + ", pState=" + pState + ", pCountry=" + pCountry + ", fatherName=" + fatherName
+				+ ", fatherNationality=" + fatherNationality + ", fatherPrevNationality=" + fatherPrevNationality
+				+ ", fatherBirthPlace=" + fatherBirthPlace + ", fatherBirthCountry=" + fatherBirthCountry
+				+ ", motherName=" + motherName + ", motherNationality=" + motherNationality + ", motherPrevNationality="
+				+ motherPrevNationality + ", motherBirthPlace=" + motherBirthPlace + ", motherBirthCountry="
+				+ motherBirthCountry + ", occupation=" + occupation + ", gardian=" + gardian + ", business=" + business
+				+ ", designation=" + designation + ", address=" + address + ", mobile=" + mobile + ", prevOccupation="
+				+ prevOccupation + ", fromPoliceMilitary=" + fromPoliceMilitary + "]";
 	}
-		
+
 }
