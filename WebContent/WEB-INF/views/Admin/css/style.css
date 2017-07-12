@@ -1,0 +1,59 @@
+/* boostrap rules */
+.btn-primary {
+    background-color: #44a4ae;
+    background-image: none;
+    border: 1px #44a4ae solid;
+}
+
+.btn-primary:hover {
+    background-color: #44a4ae;
+    border: 1px #44a4ae solid;
+}
+
+.btn-primary:focus {
+    background-color: #44a4ae;
+    border: 1px #44a4ae solid;
+}
+
+.box {
+    border: 1px red solid;
+}
+
+.store-container {
+    padding:0;
+}
+
+.brand > h2 {
+    padding-left: 10px;
+}
+
+.brand:hover {
+    text-decoration: none;
+}
+
+ul.admin-navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+}
+
+ul.admin-navigation li a {
+    height: 60px;
+    width: 100%;
+    display: block;
+    background-color: #44a4ae;
+    text-align: center;
+    line-height: 3em; 
+    color: white;
+    font-size: 18px;
+    margin: 2px;
+}
+
+ul.admin-navigation li a:hover {
+    text-decoration: none;
+}
+
+img.product-thumb {
+    width: 50px;
+}

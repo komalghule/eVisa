@@ -18,4 +18,9 @@ public class ApplicationServiceImpl implements ApplicationService {
 	public void saveApp(Application app) {
 		dao.saveApp(app);	
 	}
+
+	@Override
+	public Application getApplicationById(String id) {
+		return dao.getApplicationById(id);
+	}
 }

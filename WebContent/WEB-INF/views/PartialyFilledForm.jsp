@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,11 +6,11 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
       
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.css">
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap.js"></script>
- <div><img class="banner" alt="Indian Visa Online" src="images/banner1.jpg"></div> 
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
+        <script src="bootstrap/js/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
+ <div><img class="banner" alt="Indian Visa Online" src="bootstrap/images/banner1.jpg"></div> 
 
 
  <style>
@@ -34,37 +35,24 @@ div
 
 </style>
 </head>
-
 <body>
-    
-					
-    <form action="" method="POST" role="form">
-                        <legend>Visa Status Enquiry </legend>
-                    
-                       <div>
-						<label>Application Id:</label>
-						<input type="id" name="id" required=""/>
-					</div><br>
-                    
-					<div>
-						<label>passport No:</label>
-						<input type="pno" name="pno" required=""/>
-					</div><br>  
-                    <center>
-                    <button type="button" class="btn btn-default">Check Status</button></center><br>
-                    <p>
-
-<ul class="list-group">Note:
-    <li class="list-group-item">Visa Status Enquiry can be used to know Visa Status.</li>
-    <li class="list-group-item">Application ID can be seen on your receipt issued by Indian Mission/Agent where you have submitted your Application</li>
-   
-</ul>
-
-
- </p>   
-                    
- </form>
-                 
-                     
+    <form:form action="filledAppForm" modelAttribute="command">
+    	<legend>Filled Remaining Form</legend>
+    	<table>
+    		<tbody>
+	    		<tr>
+    				<td><label>Application Id:</label></td>
+    				<td><form:input type="text" path="applicationFormId"/></td>
+    			</tr>
+    			<tr>
+    				<td><label>passport No:</label></td>
+    				<td><form:input type="text" path="passportNo" /></td>
+    			</tr>    		
+    		</tbody>
+    	</table>                    
+        <center>
+            <input type="submit" value="Filled Form"></input>
+		</center>
+	</form:form> 
 </body>
 </html>

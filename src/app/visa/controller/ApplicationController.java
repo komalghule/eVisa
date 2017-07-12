@@ -18,6 +18,7 @@ import app.visa.model.ApplicantDetailsForm;
 import app.visa.model.ApplicationFormModel;
 import app.visa.model.ConfirmationForm;
 import app.visa.model.DocumentUpload;
+import app.visa.model.FilledPartialFormModel;
 import app.visa.model.PassportFormDetail;
 import app.visa.model.PaymentDetailForm;
 import app.visa.model.VisaSoughtDetails;
@@ -53,7 +54,7 @@ public class ApplicationController {
 	}
 	
 	@RequestMapping("/onlinevisaaplication")
-	public String showoOlinevisaaplication(Model map){		
+	public String showoOlinevisaaplication(Model map,HttpSession session){		
 		List<Country> countryList = centerService.getCountryList();
 		map.addAttribute("countryList", countryList);
 		ApplicationFormModel applicationFormModel = new ApplicationFormModel();
@@ -63,6 +64,7 @@ public class ApplicationController {
 		applicationFormModel.setEmail("komalghule47@gmail.com");
 		
 		map.addAttribute("command", applicationFormModel);
+		
 		return "onlinevisaaplication";
 	}
 
@@ -70,7 +72,8 @@ public class ApplicationController {
 	public String showAppForm( ApplicationFormModel formModel,HttpSession session , Model map){
 		System.out.println(formModel);
 		Application application = new Application();
-
+		//Application application = (Application) session.getAttribute("fillApplication");
+		
 		application.getVisa().setFromCountry( formModel.getCountry());
 		application.getVisa().setIndianMission( formModel.getCenter() );
 		application.getPersonal().setNationality(formModel.getNatinality());
@@ -88,7 +91,7 @@ public class ApplicationController {
 		passportFormDetail.setApplicationFormId(application.getId());
 		passportFormDetail.setBirthDate(application.getPersonal().getBirth());
 		
-		passportFormDetail.setFirstName("Komal");
+/*		passportFormDetail.setFirstName("Komal");
 		passportFormDetail.setLastName("Ghule");
 		passportFormDetail.setPrevName("Komal");
 		passportFormDetail.setBirthCity("Junnar");
@@ -102,7 +105,7 @@ public class ApplicationController {
 		passportFormDetail.setIssueCountry("India");
 		passportFormDetail.setIssueDate(new GregorianCalendar(2017, 7, 29).getTime());
 		passportFormDetail.setExpiryDate(new GregorianCalendar(2020, 4, 9).getTime());
-		
+*/		
 		map.addAttribute("command",passportFormDetail );
 		
 		return "ApplicationForm";
@@ -133,6 +136,7 @@ public class ApplicationController {
 		appService.saveApp(application);
 		System.out.println("------form2--------");
 		System.out.println(application);
+		
 		ApplicantDetailsForm applicantDetailsForm = new ApplicantDetailsForm();
 		applicantDetailsForm.setApplicationFormId(application.getId());
 		applicantDetailsForm.setEmail(application.getContact().getEmail());
@@ -318,7 +322,7 @@ public class ApplicationController {
 
 		return "Confirmation";
 	}
-
+	
 	@RequestMapping("/printForm")
 	public String printForm(){
 		return "PrintApplicationForm";
@@ -327,12 +331,6 @@ public class ApplicationController {
 	@RequestMapping("/upload")
 	public String showUpload(){
 		return "home";
-	}
-	
-	@RequestMapping("/filledPartialyForm")
-	public String showRemainsForm(){
-		
-		return "PartialyFilledForm";
 	}
 	
 	

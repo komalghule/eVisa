@@ -146,7 +146,7 @@ public class PersonalDetails {
 	public void setNatinalityReason(String natinalityReason) {
 		this.natinalityReason = natinalityReason;
 	}
-	public boolean isResidentInFromCountry() {
+	public boolean getResidentInFromCountry() {
 		return residentInFromCountry;
 	}
 	public void setResidentInFromCountry(boolean residentInFromCountry) {

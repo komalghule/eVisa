@@ -3,6 +3,7 @@ package app.visa.model;
 import org.springframework.web.multipart.MultipartFile;
 
 public class DocumentUpload {
+	
 	private String applicationFromId;
 	private MultipartFile file;
 	

@@ -43,18 +43,19 @@ public class Application {
 	@Field
 	@DateTimeFormat(pattern="dd/MM/yyyy hh:mm:ss")
 	private Date date;
+	private String status;
 	
 	public Application() {
 		this(null,new VisaDetails(),new PersonalDetails(),new PassportDetails(),new ContactDetails(),
 				new ArrayList<>(),"",new ArrayList<>(),new OccupationDetails(),new Address(),new ReferenceDetails(),
-				new ReferenceDetails(),new ArrayList<>(),new PaymentDetails(),new Date());
+				new ReferenceDetails(),new ArrayList<>(),new PaymentDetails(),new Date(),"");
 	}
 	
 	public Application(String appid, VisaDetails visa, PersonalDetails personal, PassportDetails passport,
 			ContactDetails contact, List<FamilyDetails> familyMembers, String lastVisaAppId,
 			List<String> lastVisitedCities, OccupationDetails occupation, Address resiAddress,
 			ReferenceDetails fromCountryReference, ReferenceDetails indiaCountryReference, List<UploadDocument> documents,
-			PaymentDetails payment, Date date) {
+			PaymentDetails payment, Date date,String status) {
 		this.id = appid;
 		this.visa = visa;
 		this.personal = personal;
@@ -70,6 +71,7 @@ public class Application {
 		this.documents = documents;
 		this.payment = payment;
 		this.date = date;
+		this.status = status;
 	}
 
 	public String getId() {
@@ -164,12 +166,23 @@ public class Application {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
-		return "Application [appid=" + id + ", visa=" + visa + ", personal=" + personal + ", passport=" + passport
+		return "Application [id=" + id + ", visa=" + visa + ", personal=" + personal + ", passport=" + passport
 				+ ", contact=" + contact + ", familyMembers=" + familyMembers + ", lastVisaAppId=" + lastVisaAppId
 				+ ", lastVisitedCities=" + lastVisitedCities + ", occupation=" + occupation + ", resiAddress="
 				+ resiAddress + ", fromCountryReference=" + fromCountryReference + ", indiaCountryReference="
-				+ indiaCountryReference + ", documents=" + documents + ", payment=" + payment + ", date=" + date + "]";
+				+ indiaCountryReference + ", documents=" + documents + ", payment=" + payment + ", date=" + date
+				+ ", status=" + status + "]";
 	}
+	
 }

@@ -1,3 +1,4 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,20 +39,22 @@ div {
 <body>
 
 
-	<form action="" method="POST" role="form">
+	<form:form action="showStatus" modelAttribute="command">
 		<legend>Visa Status Enquiry </legend>
-
-		<div>
-			<label>Application Id:</label> <input type="id" name="id" required="" />
-		</div>
-		<br>
-
-		<div>
-			<label>passport No:</label> <input type="pno" name="pno" required="" />
-		</div>
-		<br>
-		<center>
-			<a href="checkStatus" class="btn btn-default">Check Status</a>
+   	<table>
+    		<tbody>
+	    		<tr>
+    				<td><label>Application Id:</label></td>
+    				<td><form:input type="text" path="applicationFormId"/></td>
+    			</tr>
+    			<tr>
+    				<td><label>passport No:</label></td>
+    				<td><form:input type="text" path="passportNo" /></td>
+    			</tr>    		
+    		</tbody>
+    	</table>                    
+        <center>
+            <input type="submit" value="Check Status"></input>
 		</center>
 		<br>
 		<p>
@@ -68,7 +71,7 @@ div {
 
 		</p>
 
-	</form>
+	</form:form>
 
 
 </body>

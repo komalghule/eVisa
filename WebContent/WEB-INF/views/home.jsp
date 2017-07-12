@@ -36,7 +36,7 @@
 			<a href="filledPartialyForm">Complete Partially Filled form</a>
 		</div>
 		<div class="a">
-			<a href="showStatus">Visa Status Enquiry</a>
+			<a href="status">Visa Status Enquiry</a>
 		</div>
 		<div class="a">
 			<a href="printForm1">Print Registered Application </a>

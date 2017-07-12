@@ -8,6 +8,6 @@ public class LogController {
 
 	@RequestMapping("/logout")
 	public String showLogout(){
-		return "Logout";
+		return "home";
 	}
 }
