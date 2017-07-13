@@ -45,14 +45,15 @@ div {
 			<h4 style="text-decoration: darkorchid">Applicant Visa Status</h4>
 		</legend>
 
-		<div><h5 style="color: firebrick">Application Id : ${application.id}<h5></div>
-		<div><h5 style="color: firebrick">Passport No : ${application.passport.passportNo}<h5></div>
+		<div><h5 style="color: firebrick">Application Id : ${application.id}</h5></div>
+		<div><h5 style="color: firebrick">Passport No : ${application.passport.passportNo}</h5></div>
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Status</th>
+					<th>Appointment Details</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -60,6 +61,7 @@ div {
 					<td>${application.personal.givenname}</td>
 					<td>${application.personal.surname}</td>
 					<td>${application.status}</td>
+					<td>${application.appointmentDetails}</td>
 				</tr>
 			</tbody>
 		</table>

@@ -1,20 +1,14 @@
-package app.visa.model;
+package app.visa.controller;
 
 import org.springframework.web.multipart.MultipartFile;
 
 public class DocumentUpload {
 	
-	private String applicationFromId;
+	
 	private MultipartFile file;
 	
 	public DocumentUpload() {
 		
-	}
-	public String getApplicationFromId() {
-		return applicationFromId;
-	}
-	public void setApplicationFromId(String applicationFromId) {
-		this.applicationFromId = applicationFromId;
 	}
 	public MultipartFile getFile() {
 		return file;

@@ -27,7 +27,7 @@ public class AdminDaoImpl implements AdminDao {
 	@Override
 	public WriteResult updateApplicationStatus(String applicationId) {
 		return mongoTemplate.updateFirst(new Query(Criteria.where("id").is(applicationId)),
-				Update.update("status", "approved"), Application.class);		
+				Update.update("status", "Pending"), Application.class);		
 	}
 
 }

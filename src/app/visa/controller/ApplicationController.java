@@ -1,5 +1,6 @@
 package app.visa.controller;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -7,30 +8,27 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import app.visa.model.ApplicantDetailsForm;
 import app.visa.model.ApplicationFormModel;
 import app.visa.model.ConfirmationForm;
-import app.visa.model.DocumentUpload;
-import app.visa.model.FilledPartialFormModel;
+import app.visa.model.DocsUploadModel;
 import app.visa.model.PassportFormDetail;
 import app.visa.model.PaymentDetailForm;
 import app.visa.model.VisaSoughtDetails;
 import app.visa.pojo.Application;
 import app.visa.pojo.Country;
 import app.visa.pojo.FamilyDetails;
-import app.visa.pojo.PaymentDetails;
+import app.visa.pojo.UploadDocument;
 import app.visa.pojo.Visa;
 import app.visa.service.ApplicationService;
 import app.visa.service.CenterService;
 import app.visa.service.VisaService;
-import javassist.tools.rmi.AppletServer;
 
 @Controller
 public class ApplicationController {
@@ -74,6 +72,7 @@ public class ApplicationController {
 		Application application = new Application();
 		//Application application = (Application) session.getAttribute("fillApplication");
 		
+		application.setStatus("Pending");
 		application.getVisa().setFromCountry( formModel.getCountry());
 		application.getVisa().setIndianMission( formModel.getCenter() );
 		application.getPersonal().setNationality(formModel.getNatinality());
@@ -91,7 +90,7 @@ public class ApplicationController {
 		passportFormDetail.setApplicationFormId(application.getId());
 		passportFormDetail.setBirthDate(application.getPersonal().getBirth());
 		
-/*		passportFormDetail.setFirstName("Komal");
+		passportFormDetail.setFirstName("Komal");
 		passportFormDetail.setLastName("Ghule");
 		passportFormDetail.setPrevName("Komal");
 		passportFormDetail.setBirthCity("Junnar");
@@ -105,7 +104,7 @@ public class ApplicationController {
 		passportFormDetail.setIssueCountry("India");
 		passportFormDetail.setIssueDate(new GregorianCalendar(2017, 7, 29).getTime());
 		passportFormDetail.setExpiryDate(new GregorianCalendar(2020, 4, 9).getTime());
-*/		
+		
 		map.addAttribute("command",passportFormDetail );
 		
 		return "ApplicationForm";
@@ -273,18 +272,40 @@ public class ApplicationController {
 		System.out.println("=========final Application=========");
 		System.out.println(application);
 		
-		DocumentUpload documentUpload = new DocumentUpload();
-		documentUpload.setApplicationFromId(application.getId());
-		map.addAttribute("command",documentUpload);
-		
+		DocsUploadModel docsUploadModel = new DocsUploadModel();
+		map.addAttribute("command",docsUploadModel);
 		return "DocsUpload";
 	}
 
 	@RequestMapping("/payment")
-	public String makePayment(HttpSession session,Model map,DocumentUpload documentUpload){
+	public String makePayment(DocsUploadModel docsUploadModel,HttpSession session,Model map,DocumentUpload documentUpload) throws Exception{
 		Application application = (Application) session.getAttribute("visaApplication");
-		
+		/*Doc Upload*/
 		//Upload Document
+		
+		System.out.println("Inside upload process"+docsUploadModel);
+		
+		UploadDocument uploadDocument = new UploadDocument();
+		uploadDocument.setTitle(docsUploadModel.getDoc1());
+		System.out.println("uploadDocument 1: " + uploadDocument);
+		
+		MultipartFile file = documentUpload.getFile();
+		System.out.println("MultipartFile  ==>> "+file);
+		if(file!=null && file.getSize() > 0){
+			InputStream in = file.getInputStream();
+			System.out.println(in+"====");
+			String path = this.getClass().getResource("/../../bootstrap/").getPath();
+			System.out.println("PATH:"+path);
+			String fname = file.getOriginalFilename();
+			System.out.println("FileName::"+fname);			
+		}
+		
+		
+		uploadDocument.setPath(docsUploadModel.getDoc1());
+		//List<UploadDocument> uploadDocumentList = new ArrayList<>();
+		
+		
+		
 		
 		PaymentDetailForm paymentDetailForm = new PaymentDetailForm();
 		paymentDetailForm.setApplicationFormId(application.getId());
@@ -325,11 +346,19 @@ public class ApplicationController {
 	
 	@RequestMapping("/printForm")
 	public String printForm(){
+		
 		return "PrintApplicationForm";
 	}
 
+	@RequestMapping("/showForm")
+	public String showForm(){
+		
+		return "ShowForm";
+	}
 	@RequestMapping("/upload")
 	public String showUpload(){
+		
+		
 		return "home";
 	}
 	

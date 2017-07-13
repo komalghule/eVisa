@@ -39,7 +39,7 @@
 			<a href="status">Visa Status Enquiry</a>
 		</div>
 		<div class="a">
-			<a href="printForm1">Print Registered Application </a>
+			<a href="printForm">Print Registered Application </a>
 		</div>
 
 	</div>

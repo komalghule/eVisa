@@ -27,8 +27,8 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li onclick = "reloadApplicants()"><a>All Request</a></li>
-                    <li onclick = "readUsers()"><a>Users</a></li>
+                    <li><a href="allApplicantDetails">All Request</a></li>
+                   
                     <li onclick = "logoutAdmin()"><a>Logout</a></li>
                 </ul>
                 </div><!--/.nav-collapse -->

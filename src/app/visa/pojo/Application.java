@@ -44,18 +44,19 @@ public class Application {
 	@DateTimeFormat(pattern="dd/MM/yyyy hh:mm:ss")
 	private Date date;
 	private String status;
+	private AppointmentDetails appointmentDetails;
 	
 	public Application() {
 		this(null,new VisaDetails(),new PersonalDetails(),new PassportDetails(),new ContactDetails(),
 				new ArrayList<>(),"",new ArrayList<>(),new OccupationDetails(),new Address(),new ReferenceDetails(),
-				new ReferenceDetails(),new ArrayList<>(),new PaymentDetails(),new Date(),"");
+				new ReferenceDetails(),new ArrayList<>(),new PaymentDetails(),new Date(),"",new AppointmentDetails());
 	}
 	
 	public Application(String appid, VisaDetails visa, PersonalDetails personal, PassportDetails passport,
 			ContactDetails contact, List<FamilyDetails> familyMembers, String lastVisaAppId,
 			List<String> lastVisitedCities, OccupationDetails occupation, Address resiAddress,
 			ReferenceDetails fromCountryReference, ReferenceDetails indiaCountryReference, List<UploadDocument> documents,
-			PaymentDetails payment, Date date,String status) {
+			PaymentDetails payment, Date date,String status,AppointmentDetails appointmentDetails) {
 		this.id = appid;
 		this.visa = visa;
 		this.personal = personal;
@@ -72,6 +73,7 @@ public class Application {
 		this.payment = payment;
 		this.date = date;
 		this.status = status;
+		this.appointmentDetails = appointmentDetails;
 	}
 
 	public String getId() {
@@ -175,6 +177,14 @@ public class Application {
 		this.status = status;
 	}
 
+	public AppointmentDetails getAppointmentDetails() {
+		return appointmentDetails;
+	}
+
+	public void setAppointmentDetails(AppointmentDetails appointmentDetails) {
+		this.appointmentDetails = appointmentDetails;
+	}
+
 	@Override
 	public String toString() {
 		return "Application [id=" + id + ", visa=" + visa + ", personal=" + personal + ", passport=" + passport
@@ -182,7 +192,6 @@ public class Application {
 				+ ", lastVisitedCities=" + lastVisitedCities + ", occupation=" + occupation + ", resiAddress="
 				+ resiAddress + ", fromCountryReference=" + fromCountryReference + ", indiaCountryReference="
 				+ indiaCountryReference + ", documents=" + documents + ", payment=" + payment + ", date=" + date
-				+ ", status=" + status + "]";
-	}
-	
+				+ ", status=" + status + ", appointmentDetails=" + appointmentDetails + "]";
+	}	
 }

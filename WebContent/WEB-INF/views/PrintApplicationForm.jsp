@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,29 +36,15 @@ div {
 </head>
 
 <body>
-
-
-	<form action="home" method="post">
-		<legend>Application Form</legend>
-
+	<form:form action="showForm" method="post">
+		<legend>Print Application Form</legend>
 		<div>
-			<label>Application Id:</label> <input required type="id" name="id" />
+			<label>Application Id:</label> <input required type="text" name="id" />
 		</div>
-		<br>
-
 		<div>
-			<label>Application Name:</label> <input required type="pno"
-				name="pno" />
+			<label>Application Name:</label> <input required type="text" name="pno" />
 		</div>
-		<br>
-		<center>
-			<!-- <button type="button" class="btn btn-danger">
-				<a href="">Print</a> -->
-			<input type="submit" value="PrintForm"/>
-		</center>
-		<br>
-	</form>
-
-
+		<center><input type="submit" value="PrintForm" class="btn btn-success"/></center>
+	</form:form>
 </body>
 </html>
