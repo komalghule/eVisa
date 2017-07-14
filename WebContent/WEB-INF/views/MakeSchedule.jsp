@@ -43,7 +43,7 @@
 			<tbody>		
 				<tr>
 					<td>Enter Mission : </td>
-					<td><form:input  type="textarea" path="mission"/></td>
+					<td><form:select path="mission" id="drpcenters" class="form-control"/></td>
 				</tr>
 				<tr>
 					<td>Enter Date : </td>
@@ -52,13 +52,30 @@
 				<tr>
 					<td>Enter Time : </td>
 					<td><form:input  type="text" path="time"/></td>
+					<td><form:select path="meridiem"><option>AM<option><option>PM</option></form:select></td>
 				</tr>
 			</tbody>
 		</table>
-				<center><input type="submit" class="success" value="OK" ></center>
+				<center><input type="submit" class="btn btn-success" value="OK" ></center>
         </form:form>
 <script>
 
+$(document).ready( function() {
+
+	console.log("page ready");
+
+	$.getJSON(	
+		'centers', 
+		{ ajax : 'true' }, 
+		function(data) {
+			console.log(data);
+			$.each(data, function(index,item) {
+				console.log(item.city);
+				$("#drpcenters").append($("<option></option>").val(item.city).html(item.city));
+			});
+		}
+	);
+});
 function logoutAdmin(){
     window.location = "home";
 }

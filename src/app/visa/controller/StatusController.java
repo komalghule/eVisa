@@ -50,18 +50,24 @@ public class StatusController {
 	
 	@RequestMapping("/setStatus")
 	public String update(SetStatusModel setStatusModel,HttpSession session){
+		System.out.println(setStatusModel+" in set status");
 		String id = (String) session.getAttribute("id");
+		System.out.println(id+" id");
 		Application application = service.getApplicationById(id);
 		application.setStatus(setStatusModel.getStatus());
+		System.out.println(application+"-===========");
 		service.saveApp(application);
+		System.out.println(application+"-===========");
 		return "redirect:allApplicantDetails";
 	}
+
 	@RequestMapping("/update")
 	public String updateApplication(@RequestParam(value="id",required=false)String id,Model map,HttpSession session)
 	{
+		System.out.println(id+" inupdate");
 		SetStatusModel setStatusModel = new SetStatusModel();
 		map.addAttribute("command", setStatusModel);
-		map.addAttribute("id", id);
+		session.setAttribute("id", id);
 		return "SetStatus";
 	}
 	

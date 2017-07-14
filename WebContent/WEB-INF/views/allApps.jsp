@@ -117,19 +117,6 @@
 		</table>
 	</form:form>
 	<script>
-		var status = $('#status').val();
-		var id = $('#id').val();
-		console.log(status);
-		$('#status').change(function(){
-
-			$.ajax({
-				url : "update?";
-			});
-			console.log("in function");
-			console.log($('#status').val());
-			
-		});
-		
 		function logoutAdmin(){
             window.location = "home";
         }

@@ -39,7 +39,7 @@
             <div id="contacts"></div>
         </div>
 			
-	<form:form action="setStatus" modelAttribute="command" >
+	<form:form action="setStatus" modelAttribute="command" method="post">
 	<table>
 	<tr>
 		<td>Applicant Id : ${id}</td>
@@ -60,7 +60,7 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td><input type="submit" value="set" class="success"></td>
+		<td><input type="submit" value="set" class="btn btn-success"></td>
 	</tr>
 	</table>	
 	</form:form>	

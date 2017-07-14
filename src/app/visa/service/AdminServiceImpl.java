@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mongodb.WriteResult;
 
 import app.visa.dao.AdminDao;
+import app.visa.pojo.Admin;
 import app.visa.pojo.Application;
 
 @Repository
@@ -26,6 +27,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public WriteResult updateApplicationStatus(String applicationId) {
 		return dao.updateApplicationStatus(applicationId);
+	}
+
+	@Override
+	public Admin validateAdmin(String username, String password) {
+		return dao.validateAdmin(username, password);
 	}
 
 }

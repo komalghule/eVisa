@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mongodb.WriteResult;
 
+import app.visa.pojo.Admin;
 import app.visa.pojo.Application;
 
 @Repository
@@ -28,6 +29,14 @@ public class AdminDaoImpl implements AdminDao {
 	public WriteResult updateApplicationStatus(String applicationId) {
 		return mongoTemplate.updateFirst(new Query(Criteria.where("id").is(applicationId)),
 				Update.update("status", "Pending"), Application.class);		
+	}
+
+	@Override
+	public Admin validateAdmin(String username,String password) {
+		//Query query = new Query(Criteria.where("username").lt(username).and("password").gt(password));
+		Query query = new Query(Criteria.where("username").is(username).and("password").is(password));
+		/*where("age").lt(50).and("accounts.balance").gt(1000.00d)*/
+		return mongoTemplate.findOne(query, Admin.class);
 	}
 
 }
