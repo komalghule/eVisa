@@ -10,6 +10,7 @@
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="1000000"/>
 	</bean>
+	
 	<mvc:resources location="/bootstrap/" mapping="/bootstrap/**"/>
 	<context:annotation-config />
 	

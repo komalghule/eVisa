@@ -40,15 +40,16 @@ div
 </style>
 </head>
 <body>
-	<form:form action="payment" modelAttribute="command"  method="post" >
+	<form:form action="payment" modelAttribute="command"  method="post"  enctype="multipart/form-data">
 			<legend><h4 style="text-decoration:darkorchid ">Upload Documents</h4></legend>
            	<div><h5 style="color: firebrick">Please Note Down the Temporary Application Id:<h5></div>
             <table>
                 <tbody>
                      <tr>
                         <td>Choose Photo</td>
-                        <td><input type="file" name="photo"></td>
+                        <td><input type="file" name="file" multiple="multiple"></td>
                     </tr>
+                    <%--
                        <tr>
                         <td>Choose Doc1</td>
                         <td><input type="file" name="doc1"></td>
@@ -73,6 +74,7 @@ div
                         <td>Choose Doc6</td>
                         <td><input type="file" name="doc6"></td>
                     </tr>
+                     --%>
                     <tr>
                         <td></td>
                         <td></td>

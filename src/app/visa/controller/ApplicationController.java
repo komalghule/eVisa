@@ -278,7 +278,7 @@ public class ApplicationController {
 	}
 
 	@RequestMapping("/payment")
-	public String makePayment(DocsUploadModel docsUploadModel,HttpSession session,Model map,DocumentUpload documentUpload) throws Exception{
+	public String makePayment(DocumentUpload documentUpload, DocsUploadModel docsUploadModel,HttpSession session,Model map) throws Exception{
 		Application application = (Application) session.getAttribute("visaApplication");
 		/*Doc Upload*/
 		//Upload Document
