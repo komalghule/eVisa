@@ -43,7 +43,9 @@ public class Application {
 	@Field
 	@DateTimeFormat(pattern="dd/MM/yyyy hh:mm:ss")
 	private Date date;
+	@Field
 	private String status;
+	@Field
 	private AppointmentDetails appointmentDetails;
 	
 	public Application() {

@@ -39,4 +39,10 @@ public class AdminDaoImpl implements AdminDao {
 		return mongoTemplate.findOne(query, Admin.class);
 	}
 
+	@Override
+	public void removeApplication(String id) {
+		Query query = new Query(Criteria.where("id").is(id));
+		mongoTemplate.remove(query, Application.class);		
+	}
+
 }

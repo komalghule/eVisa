@@ -10,10 +10,29 @@
         <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
         <script src="bootstrap/js/jquery.js"></script>
         <script src="bootstrap/js/bootstrap.js"></script>
- <div><img class="banner" alt="Indian Visa Online" src="bootstrap/images/banner1.jpg"></div> 
+		<script src="bootstrap/js/1.8.2/jquery.min.js"></script>
 
 
  <style>
+ 
+ #tb
+{
+height:130px;
+width:120%;
+top:0px;
+bottom:0px;
+right:0px;
+left:0px;
+   margin:auto;
+   possition:absolute;	
+   border-collapse: separate;
+   border-spacing: 0 1em;
+   padding-left:30%;
+    
+     
+}
+
+ 
 form
 {
   
@@ -26,7 +45,8 @@ top: 200px;
 bottom:0;
 left: 0;
 right: 0;
-padding: 30px;
+margin-top:5%;
+
 }
 body
 {
@@ -36,20 +56,79 @@ div
 {
 	width: 800px;
 }
+#head
+{
+
+height:40px;
+width:100%;
+padding-top:5px;
+	bottom:0px;
+	right:0px;
+	left:0px;
+     margin:auto;
+ text-align:center;
+ font-size:20px;
+	possition:relative;
+	background-color:pink;
+	
+	
+	 
+
+}
+input
+{
+padding-right:45%;
+}
+
+#tempid
+{
+padding-left:10%;
+}
 
 </style>
+
+<script>
+/* $(document).ready(function() {
+	//add more file components if Add is clicked
+	$('#addFile').click(function() {
+		var fileIndex = $('#fileTable tr').children().length - 1;
+		$('#fileTable').append(
+				'<tr><td>'+
+				'	<input type="file" name="files['+ fileIndex +']" />'+
+				'</td></tr>');
+	});
+	
+});
+ */
+	$(document).ready(function() {
+		//add more file components if Add is clicked
+		
+			var fileIndex = $('#fileTable tr').children().length - 1;
+			$('#fileTable').append(
+					'<tr><td>'+
+					'	<input type="file" name="files['+ fileIndex +']" />'+
+					'</td></tr>');		
+	});
+	 
+ </script>
 </head>
 <body>
-	<form:form action="payment" modelAttribute="command"  method="post" >
-			<legend><h4 style="text-decoration:darkorchid ">Upload Documents</h4></legend>
-           	<div><h5 style="color: firebrick">Please Note Down the Temporary Application Id:<h5></div>
-            <table>
+
+<div> 
+     <img class="banner" alt="Indian Visa Online" src="bootstrap/images/banner1.jpg">
+</div>
+	<div id="head"></legend><h4 >Upload Documents</h4></div>
+		
+<%-- 	<form:form action="save" modelAttribute="command"  method="post" enctype="multipart/form-data">
+			
+           	<div><legend><h5 style="color:firebrick" id="tempid">Please Note Down the Temporary Application Id:</h5></legend></div>
+            <table id="tb">
                 <tbody>
                      <tr>
                         <td>Choose Photo</td>
-                        <td><input type="file" name="photo"></td>
+                        <td><input type="file" name="file" multiple="multiple"></td>
                     </tr>
-                       <tr>
+	                <tr>
                         <td>Choose Doc1</td>
                         <td><input type="file" name="doc1"></td>
                     </tr>
@@ -77,17 +156,50 @@ div
                         <td></td>
                         <td></td>
                     </tr>
-                </tbody>
+ 	                </tbody>
             </table><br/>
-<!--             <div>
-            	<input type="submit" class="btn btn-default" formaction="upload" value="Upload and Temporary Exit"></input>
-            	<input type="submit" class="btn btn-default" value="save and Continue"/>
-            </div>
- -->
+
 		<center>
-           	<input type="submit" class="btn btn-default" formaction="home" value="Upload and Temporary Exit"></input>
+           	<input type="submit" class="btn btn-default" formaction="home" value="Upload and Temporary Exit"/>
+        
            	<input type="submit" class="btn btn-default" value="save and Continue"/>
 		</center>
 	</form:form>
-</body>
+ --%>
+ 
+ <form:form method="post" action="payment" 
+		modelAttribute="uploadForm" enctype="multipart/form-data">
+
+	<p>Select files to upload. Press Add button to add more file inputs.</p>
+
+	<input id="addFile" type="button" value="Add File" />
+	<table id="fileTable">
+		<tr>
+			<td><input name="files[0]" type="file" /></td>
+		</tr>
+		<tr>
+			<td><input name="files[1]" type="file" /></td>
+		</tr>
+		<tr>
+			<td><input name="files[2]" type="file" /></td>
+		</tr>
+		<tr>
+			<td><input name="files[3]" type="file" /></td>
+		</tr>
+		<tr>
+			<td><input name="files[4]" type="file" /></td>
+		</tr>
+		<tr>
+			<td><input name="files[5]" type="file" /></td>
+		</tr>
+		<tr>
+			<td><input name="files[6]" type="file" /></td>
+		</tr>
+
+
+	</table>
+	<br/><input type="submit" value="Upload" />
+</form:form>
+ 
+ </body>
 </html>

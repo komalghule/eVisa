@@ -1,5 +1,6 @@
 package app.visa.controller;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -272,40 +275,97 @@ public class ApplicationController {
 		System.out.println("=========final Application=========");
 		System.out.println(application);
 		
-		DocsUploadModel docsUploadModel = new DocsUploadModel();
+/*		DocsUploadModel docsUploadModel = new DocsUploadModel();
 		map.addAttribute("command",docsUploadModel);
+*/		
+		
 		return "DocsUpload";
 	}
 
+	
+	@RequestMapping(value="/save", method = RequestMethod.POST)
+	public String save(
+			@ModelAttribute("uploadForm") FileUploadForm uploadForm,
+					Model map,HttpSession session) throws IOException {
+		
+		List<MultipartFile> files = uploadForm.getFiles();
+
+		List<String> fileNames = new ArrayList<String>();
+		
+		List<UploadDocument> uploadDocumentsList = new ArrayList<>();
+		if(null != files && files.size() > 0) {
+			for (MultipartFile multipartFile : files) {
+
+				String fileName = multipartFile.getOriginalFilename();
+				System.out.println("========="+fileName+"==========="); 
+				fileNames.add(fileName);
+				//Handle file content - multipartFile.getInputStream()
+
+				if(multipartFile!=null && multipartFile.getSize() > 0){
+					InputStream in = multipartFile.getInputStream();
+					System.out.println(in+"====");
+					String path = this.getClass().getResource("/../../bootstrap/").getPath();
+					System.out.println("PATH:"+path);
+					String fname = multipartFile.getOriginalFilename();
+					System.out.println("FileName::"+fname);			
+				
+					UploadDocument uploadDocument = new UploadDocument();
+					uploadDocument.setPath(path);
+					uploadDocument.setTitle(fname);
+					uploadDocumentsList.add(uploadDocument);	
+				}
+			}
+		}
+				
+		Application application = (Application) session.getAttribute("visaApplication");
+		application.setDocuments(uploadDocumentsList);
+		for (UploadDocument uploadDocument : uploadDocumentsList) {
+			System.out.println(uploadDocument);
+		}
+		
+		map.addAttribute("files", fileNames);
+		return "fileUploadSuccess";
+	}
+	
 	@RequestMapping("/payment")
-	public String makePayment(DocsUploadModel docsUploadModel,HttpSession session,Model map,DocumentUpload documentUpload) throws Exception{
+	public String makePayment(@ModelAttribute("uploadForm") FileUploadForm uploadForm,DocsUploadModel docsUploadModel,HttpSession session,Model map,DocumentUpload documentUpload) throws Exception{
 		Application application = (Application) session.getAttribute("visaApplication");
 		/*Doc Upload*/
 		//Upload Document
+		List<MultipartFile> files = uploadForm.getFiles();
+
+		List<String> fileNames = new ArrayList<String>();
 		
-		System.out.println("Inside upload process"+docsUploadModel);
-		
-		UploadDocument uploadDocument = new UploadDocument();
-		uploadDocument.setTitle(docsUploadModel.getDoc1());
-		System.out.println("uploadDocument 1: " + uploadDocument);
-		
-		MultipartFile file = documentUpload.getFile();
-		System.out.println("MultipartFile  ==>> "+file);
-		if(file!=null && file.getSize() > 0){
-			InputStream in = file.getInputStream();
-			System.out.println(in+"====");
-			String path = this.getClass().getResource("/../../bootstrap/").getPath();
-			System.out.println("PATH:"+path);
-			String fname = file.getOriginalFilename();
-			System.out.println("FileName::"+fname);			
+		List<UploadDocument> uploadDocumentsList = new ArrayList<>();
+		if(null != files && files.size() > 0) {
+			for (MultipartFile multipartFile : files) {
+
+				String fileName = multipartFile.getOriginalFilename();
+				System.out.println("========="+fileName+"==========="); 
+				fileNames.add(fileName);
+				//Handle file content - multipartFile.getInputStream()
+
+				if(multipartFile!=null && multipartFile.getSize() > 0){
+					InputStream in = multipartFile.getInputStream();
+					System.out.println(in+"====");
+					String path = this.getClass().getResource("/../../bootstrap/").getPath();
+					System.out.println("PATH:"+path);
+					String fname = multipartFile.getOriginalFilename();
+					System.out.println("FileName::"+fname);			
+				
+					UploadDocument uploadDocument = new UploadDocument();
+					uploadDocument.setPath(path);
+					uploadDocument.setTitle(fname);
+					uploadDocumentsList.add(uploadDocument);	
+				}
+			}
 		}
-		
-		
-		uploadDocument.setPath(docsUploadModel.getDoc1());
-		//List<UploadDocument> uploadDocumentList = new ArrayList<>();
-		
-		
-		
+				
+		application.setDocuments(uploadDocumentsList);
+		for (UploadDocument uploadDocument : uploadDocumentsList) {
+			System.out.println(uploadDocument);
+		}
+		appService.saveApp(application);
 		
 		PaymentDetailForm paymentDetailForm = new PaymentDetailForm();
 		paymentDetailForm.setApplicationFormId(application.getId());

@@ -1,62 +1,100 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>home</title>
-<meta charset="UTF-8">
+<title>HOME_PAGE_VISA_PROJ</title>
+<!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="bootstrap/csspages/a.css">
-<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
-<script src="bootstrap/js/jquery.js"></script>
-<script src="bootstrap/js/bootstrap.js"></script>
-<div class="mainCntr">
-	<div class="logo">
-		<img src="bootstrap/images/logo_ivo.png" alt="indian visa online"
-			title="indian visa online">
-	</div>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Super Market Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<!-- js -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
 
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+<style>
+
+.right_area
+{
+width:60%;
+border:solid 2px;
+ height:505px;
+	top:0px;
+	bottom:0px;
+	right:0px;
+	left:0px;
+     margin:auto;
+     padding-left:76px;
+	possition:relative;
+    	 
+    
+}
+
+.banner
+{
+width:100%;
+}
+
+body
+{
+background-image:url(images4.jpg);}
+
+
+</style>	
+<body>
+<!-- header -->
+	
 	<div>
 		<img class="banner" alt="Indian Visa Online"
-			src="bootstrap/images/banner1.jpg">
+			src="images/banner1.jpg">
 	</div>
-</head>
-
-
-
-
-<body>
-
-	<div class="container">
-
-		<div class="a">
-			<a href="onlinevisaaplication">Regular Visa Application</a>
-		</div>
-		<div class="a">
-			<a href="filledPartialyForm">Complete Partially Filled form</a>
-		</div>
-		<div class="a">
-			<a href="status">Visa Status Enquiry</a>
-		</div>
-		<div class="a">
-			<a href="printForm">Print Registered Application </a>
-		</div>
-
-	</div>
-
-	<!--  filledPartialyForm     showStatus   printForm1 -->
-
-
-	<div class="container-fluid">
-
-		<div class="col-md-3">
-
-			<!--Begin left_menu-->
-			<div class="left_bar">
-				<div class="left_bar_inner">
-					<div class="sidebar">
-
-						<ul>
+<!-- //header -->
+<!-- navigation -->
+	<div class="navigation-agileits">
+		<div class="container">
+			<nav class="navbar navbar-default">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header nav_2">
+								<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+							</div> 
+							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+								<ul class="nav navbar-nav">
+										
+									<!-- Mega Menu -->
+<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">HOME<b class="caret"></b></a>
+		<ul class="dropdown-menu multi-column columns-3">
+<div class="row">
+			<div class="multi-gd-img">
+<ul class="multi-column-dropdown">
+	
 							<h4>Visa Information</h4>
 							<li><a
 								onclick="$('#overview').css('display', 'block');
@@ -190,14 +228,73 @@
 									Web links</a></li>
 
 						</ul>
-					</div>
-				</div>
-			</div>
-			<!--End left_menu-->
-		</div>
+	</div>	
+												
+											</div>
+										</ul>
+									</li>
+									
 
 
-		<!--Begin overview-->
+<li><a href="onlinevisaaplication">Regular Visa Application</a></li>
+<li><a href="filledPartialyForm">Complete Partially Filled form</a></li>
+<li><a href="showStatus">Visa Status Enquiry</a></li>
+<li><a href="printForm1">Print Registered Application </a></li>
+	</ul>
+</div>
+</nav>
+</div>
+</div>
+		
+
+	
+   
+   
+
+<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+<script src="js/minicart.min.js"></script>
+<script>
+	// Mini Cart
+	paypal.minicart.render({
+		action: '#'
+	});
+
+	if (~window.location.search.indexOf('reset=true')) {
+		paypal.minicart.reset();
+	}
+</script>
+<!-- main slider-banner -->
+<script src="js/skdslider.min.js"></script>
+<link href="css/skdslider.css" rel="stylesheet">
+<script type="text/javascript">
+		jQuery(document).ready(function(){
+			jQuery('#demo1').skdslider({'delay':5000, 'animationSpeed': 2000,'showNextPrev':true,'showPlayButton':true,'autoSlide':true,'animationType':'fading'});
+						
+			jQuery('#responsive').change(function(){
+			  $('#responsive_wrapper').width(jQuery(this).val());
+			});
+			
+		});
+</script>	
+<!-- //main slider-banner --> 
+
+<!--Begin overview-->
 		<div class="right_area" id="overview">
 			<div class="right_bar_inner">
 				<h4 style="text-align: center; color: crimson">OverView</h4>
@@ -217,9 +314,16 @@
 				form and scheduling the appointment can be seen at Instructions for
 				Regular Visa Application. Important technical information for
 				filling online Indian visa application can be referred at Technical
-				Instructions.<br> <br>
+				Instructions.<br> <br></p>
 		</div>
 		<!--End overview -->
+		
+		
+		
+		
+		
+		
+		
 
 
 
@@ -266,8 +370,7 @@
 
 
 		<!--Begin visa processing time-->
-		<div class="right_area" id="visa_processing_time"
-			style="display: none">
+		<div class="right_area" id="visa_processing_time" style="display: none">
 			<div class="right_bar_inner">
 				<h4>Visa Processing Time</h4>
 			</div>
@@ -280,8 +383,7 @@
 
 
 		<!--Begin photo requirements-->
-		<div class="right_area" id="visa_photo_requirements"
-			style="display: none">
+		<div class="right_area" id="visa_photo_requirements" style="display: none">
 			<div class="right_bar_inner">
 				<h4>Photo Requirements</h4>
 			</div>
@@ -494,6 +596,6 @@
 		</div>
 		<!--End of useful web link-->
 
-		<div>
+
 </body>
 </html>

@@ -98,6 +98,7 @@
 					<th>Documents</th>
 					<th>Status</th>
 					<th>AppointmentSchedule</th>
+					<th>Remove</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -111,6 +112,7 @@
 						<td><c:out value='${application.documents}'/></td>
 						<td><c:out value='${application.status}'/><br/><a href="update?id=${application.id}">set status</a></td>
 						<td><a href="scheduleAppointment?id=${application.id}">Make Appointment Schedule</a></td>
+						<td><a href="removeApp?id=${application.id}">delete</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

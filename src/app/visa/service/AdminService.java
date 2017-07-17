@@ -11,4 +11,5 @@ public interface AdminService {
 	List<Application> getAllApplication();
 	WriteResult updateApplicationStatus(String applicationId);
 	Admin validateAdmin(String username,String password);
+	void removeApplication(String id);
 }

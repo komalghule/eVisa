@@ -111,4 +111,12 @@ public class AdminController {
 		return "redirect:allApplicantDetails";
 		//return "allApps";
 	}
+	
+	@RequestMapping("/removeApp")
+	public String processRemoveApp(@RequestParam(value="id")String id){
+		System.out.println("in applicationremove");
+		service.removeApplication(id);
+		System.out.println("in after applicationremove");
+		return "redirect:allApplicantDetails";
+	}
 }

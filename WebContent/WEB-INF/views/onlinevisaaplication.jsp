@@ -1,18 +1,33 @@
+
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>Online Visa Application Form</title>
-<meta charset="UTF-8">
+<title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="bootstrap/csspages/a.css" />
-<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
-<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css" />
-<script src="bootstrap/js/jquery.js"></script>
-<script src="bootstrap/js/bootstrap.js"></script>
-<script src="bootstrap/js/1.12.4/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Super Market Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+
 
 <script>
     	var countries = null;
@@ -22,6 +37,8 @@
 
 			hide();
             
+            $('#next').click( function(){
+          });
     		console.log("page ready");
 
 			$.getJSON(	
@@ -86,16 +103,21 @@
             $('#error-email').hide();
             $('#error-arrival-date').hide();
 		}
+		function emailValidation(email){
+			//var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/);
+    		//var pattern = new RegExp("^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+    		var pattern = new RegExp(/^([\w\.\-])@([\w\-]+)((\.(\w){2,3})+)$/i);
+    		return pattern.test(email);
+		}		
 
-		function ValidateEmail(email) {
-			var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-		    return expr.test(email);
-		};
-		  
         function validateForm() {
             hide();
+            var email = $('#email').val();
+            var birthDate = $('#birthDate').val();
+            var arrivalDate = $('#arrivalDate').val();
+            
 
-			//var emailFormat = /^[a-z0-9\.\_\%\+\-]+\@[a-z0-9\.\-]+\.[a-z]{2,3}$/;
+			var emailFormat = /^[a-z0-9\.\_\%\+\-]+\@[a-z0-9\.\-]+\.[a-z]{2,3}$/;
 			//var emailFormat = /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/;
             
             var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
@@ -104,85 +126,91 @@
             var Val_date=$('#birthDate').val();
             var Arrival_Val_date=$('#arrivalDate').val();
 
-            if(Val_date.match(dateformat))
-            {
+
+            if(Val_date.match(dateformat)){
             	hide();
-               	var seperator1 = Val_date.split('/');
+               var seperator1 = Val_date.split('/');
 
-               	if (seperator1.length>1)
-               	{
-               		var splitdate = Val_date.split('/');
-               	}
-               	
-               	var dd = parseInt(splitdate[0]);
-               	var mm  = parseInt(splitdate[1]);
-               	var yy = parseInt(splitdate[2]);
+               if (seperator1.length>1)
+               {
+                   var splitdate = Val_date.split('/');
+               }
+               var dd = parseInt(splitdate[0]);
+               var mm  = parseInt(splitdate[1]);
+               var yy = parseInt(splitdate[2]);
                
-               	var ListofDays = [31,28,31,30,31,30,31,31,30,31,30,31];
+               var ListofDays = [31,28,31,30,31,30,31,31,30,31,30,31];
 
-               	if (mm==1 || mm>2)
-               	{
-                	if (dd > ListofDays[mm-1])
+               if (mm==1 || mm>2)
+               {
+                   if (dd > ListofDays[mm-1])
                    { 
-                       	$('#error-birth-date').show();  
-                       	$('#error-arrival-date').hide();      
-                       	return false;
-                   	}
-               	}
-               	if (mm==2)
-               	{
-                	var lyear = false;
-                   	if ( (!(yy % 4) && yy % 100) || !(yy % 400))
-                   	{
-                   		lyear = true;
-                   	}
-                   	if ((lyear==false) && (dd>=29))                	   
-                   	{ 
-                    	$('#error-birth-date').show();
-                       	$('#error-arrival-date').hide();
-                       	return false;
-                   	}
-                   	if ((lyear==true) && (dd>29))
-                   	{ 
-                    	$('#error-birth-date').show();
-                       	$('#error-arrival-date').hide();
-                       	return false;
-                   	}
-               	}
-           	}
-           	else
-           	{ 
-            	$('#error-birth-date').show();           
-               	return false;
-           	}
-
+                       $('#error-birth-date').show();  
+                       $('#error-arrival-date').hide();      
+                       return false;
+                   }
+               }
+               if (mm==2)
+               {
+                   var lyear = false;
+                   if ( (!(yy % 4) && yy % 100) || !(yy % 400))
+                   {
+                       lyear = true;
+                   }
+                   if ((lyear==false) && (dd>=29))                	   
+                   { 
+                       $('#error-birth-date').show();
+                       $('#error-arrival-date').hide();
+                       return false;
+                   }
+                   if ((lyear==true) && (dd>29))
+                   { 
+                       $('#error-birth-date').show();
+                       $('#error-arrival-date').hide();
+                       return false;
+                   }
+               }
+           }
+           else
+           { 
+               $('#error-birth-date').show();           
+               return false;
+           }
 			/* ====Email Validation===*/
 			
 
-  			if(Val_email != 0)
-			{
-				if (!ValidateEmail($("#email").val()))
-				{
-	            	alert("Invalid email address.");
+			if(Val_email != 0)
+        	{
+            	if(!emailValidation(Val_email))
+		        {
+            		alert("invalid email");
 					$('#error-birth-date').hide();
-	    			$('#error-email').show();
-	    			return false;
-	       		}
-	        	else 
-		    	{
-	            	alert("Valid email address.");
-	        	}
-    		}
-    		else
-   			{
-				alert("invalid email");
+	            	$('#error-email').show();
+	            	return false;
+            	}
+            }else
+           	{
+        		alert("invalid email");
 				$('#error-birth-date').hide();
-    			$('#error-email').show();
-    			return false;                
+            	$('#error-email').show();
+            	return false;                
+        	}
+			
+/*			if(!emailValidation(Val_email)){
+				
+				$('#error-birth-date').hide();
+            	$('#error-email').show();
+            	return false;	
 			}
+			
+           if(!Val_email.match(emailFormat) || Val_email == 0){
+            	$('#error-birth-date').hide();
+            	$('#error-email').show();
+            	return false;
+            }               
+ */            
 
- 			if(Arrival_Val_date.match(dateformat))
- 	 		{
+            if(Arrival_Val_date.match(dateformat)){
             	hide();
                 var seperator2 = Arrival_Val_date.split('/');
                 if (seperator2.length>1)
@@ -221,7 +249,8 @@
                         $('#error-arrival-date').show();
                         $('#error-birth-date').hide();
                         return false;
-                    }            
+                    }
+                    
                 }
             }
             else
@@ -233,68 +262,152 @@
         }
     </script>
 </head>
+<style>
+
+.right_area
+{
+width:40%;
+border:solid 2px;
+ height:505px;
+	top:0px;
+	bottom:0px;
+	right:0px;
+	left:0px;
+     margin:auto;
+     padding-left:76px;
+	possition:relative;
+	 
+
+}
+
+.banner
+{
+width:100%;
+	 
+}
+#btn
+{
+heigth:40px;
+width:20%;
+
+}
+
+input
+{
+width:100%;
+}
+#head
+{
+
+height:40px;
+width:100%;
+padding-top:10px;
+	bottom:0px;
+	right:0px;
+	left:0px;
+     margin:auto;
+ text-align:center;
+ font-size:20px;
+	possition:absolute;
+	background-color:pink;
+	
+	 
+
+}
+table
+{
+
+width:70%;
+ height:505px;
+	top:0px;
+	bottom:0px;
+	right:0px;
+	left:0px;
+     margin:auto;
+    possition:absolute;
+  
+}
+#i
+{
+text-align:left;
+
+}
+</style>	
 <body>
-	<form:form action="appForm"  modelAttribute="command" onsubmit="return validateForm();">
-		<div>
-			<img class="banner" alt="Indian Visa Online"
-				src="bootstrap/images/banner1.jpg">
-		</div>
-		<div class="container">
-			<div
-				style="background-color: palevioletred; text-align: center; font-size: 20px">Online
-				Visa Application</div>
-			<div id="inner">
+<!-- header -->
+	
+	<div>
+		<img class="banner" alt="Indian Visa Online"
+			src="images/banner1.jpg">
+	</div>
+<form:form action="appForm"  modelAttribute="command">
+		
+		<div id="head">Online Visa Application</div>
+	 
+	<div class="container" id="main">
+	<br/>
+	<div class="col-md-10">
+         <table id=tb>
+             <tbody>
+                  
+                
+				<tr id="i">
+					<td id="label">Country you are applying visa from</td>
+				<td><form:select path="country" id="drpCountry" class="form-control"/></td>
+				</tr>
+				
+				<tr id="i">
+					<td id="label">Indian Mission </td>
+				   <td><form:select id="drpCenter" path="center" class="form-control"/></td>
+				</tr>
+				
+			<tr id="i">
+					<td id="label">Nationality </td>
+					<td><form:select id="drpNationality" path="natinality"	class="form-control"/></td>
+		        </tr>		
+				
+				<tr id="i">
+					<td id="label"> Date of Birth</td> 
+					<td><form:input type="date" path="birthDate" /></td>
+				</tr>
+				
 
-				<div>
-					<label>Country you are applying visa from :</label> 
-					<form:select path="country" id="drpCountry" class="form-control"/>
-				</div>
-				<br>
-				<div>
-					<label>Indian Mission :</label> <form:select id="drpCenter" path="center"
-						class="form-control"/>
-				</div>
-				<br>
-				<div>
-					<label id="data">Nationality :</label> <form:select id="drpNationality" path="natinality"
-						class="form-control"/>
-				</div>
-				<br>
-				<div>
-					<label> Date of Birth:</label> <form:input type="date" path="birthDate" id="birthDate"/>
-					<span id="error-birth-date" class="error">please enter valid user birth date</span>
-				</div>
-				<br>
-
-				<div>
-					<label>Email ID :</label> <form:input type="email" path="email" id="email"  />
-					<span id="error-email" class="error">please enter valid email</span>
-				</div>
-				<br>
+				<tr id="i">
+					<td id="label">Email ID </td> 
+					<td><form:input type="email" path="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" /></td>
+				</tr>
+				
 
 
-				<div>
-					<label> Expected Date of Arrival:</label> 
-					<form:input type="date" path="arrivalDate" id="arrivalDate"/>
-					<span id="error-arrival-date" class="error">please enter valid arrival date</span>
-				</div>
-				<br>
-				<div>
-					<label id="data">Visa Type:</label> 
-					<form:select path="visaType" id="drpVisaType" class="form-control"/>					
-				</div>
-				<div>
-					<label id="data">Purpose:</label> 
-					<form:select path="purpose" id="drpPurpose" class="form-control"/>				
-				</div>
-				<br>
-				<center>
-					<input id="next" type="submit" class="btn-danger" value="Continue"  />
-				</center>
-			</div>
-		</div>
+				<tr id="i">
+					<td id="label"> Expected Date of Arrival</td> 
+					<td><form:input type="date" path="arrivalDate" /></td>
 
-	</form:form>
+				</tr>
+				
 
+				<tr id="i">
+					<td id="label">Visa Type</td> 
+					<td><form:select path="visaType" id="drpVisaType" class="form-control"/></td>
+					
+				</tr>
+
+				<tr id="i">
+					<td id="label">Purpose</td> 
+					<td><form:select path="purpose" id="drpPurpose" class="form-control"/></td>
+				
+				</tr>
+				
+			<tr>
+				<td colspan=2><center><input id="btn" type="submit" class="btn-danger" value="Continue"  /></center></td>
+			<td></td>
+			</tr>               
+           </tbody>         
+       </table>            
+  </div>
+</div>
+<br/>
+<center></center>
+ </form:form>
 </body>
 </html>

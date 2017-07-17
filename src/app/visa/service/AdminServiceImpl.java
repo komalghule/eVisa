@@ -34,4 +34,9 @@ public class AdminServiceImpl implements AdminService {
 		return dao.validateAdmin(username, password);
 	}
 
+	@Override
+	public void removeApplication(String id) {
+		dao.removeApplication(id);		
+	}
+
 }
