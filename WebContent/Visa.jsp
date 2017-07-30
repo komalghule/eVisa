@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- 
+<!--
 <a href="home">Click For Home</a>
 -->
+
 <jsp:forward page="home"/>
 </body>
 </html>
+
+

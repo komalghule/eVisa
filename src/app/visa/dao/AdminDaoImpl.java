@@ -36,6 +36,7 @@ public class AdminDaoImpl implements AdminDao {
 		//Query query = new Query(Criteria.where("username").lt(username).and("password").gt(password));
 		Query query = new Query(Criteria.where("username").is(username).and("password").is(password));
 		/*where("age").lt(50).and("accounts.balance").gt(1000.00d)*/
+		System.out.println("in admin dao");
 		return mongoTemplate.findOne(query, Admin.class);
 	}
 

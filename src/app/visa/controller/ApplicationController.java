@@ -23,6 +23,7 @@ import app.visa.model.ConfirmationForm;
 import app.visa.model.DocsUploadModel;
 import app.visa.model.PassportFormDetail;
 import app.visa.model.PaymentDetailForm;
+import app.visa.model.ShowFormLoginModel;
 import app.visa.model.VisaSoughtDetails;
 import app.visa.pojo.Application;
 import app.visa.pojo.Country;
@@ -60,10 +61,10 @@ public class ApplicationController {
 		map.addAttribute("countryList", countryList);
 		ApplicationFormModel applicationFormModel = new ApplicationFormModel();
 		
-		applicationFormModel.setBirthDate(new GregorianCalendar(1994, 4, 9).getTime());
+		/*applicationFormModel.setBirthDate(new GregorianCalendar(1994, 4, 9).getTime());
 		applicationFormModel.setArrivalDate(new GregorianCalendar(2017, 11, 1).getTime());
 		applicationFormModel.setEmail("komalghule47@gmail.com");
-		
+*/		
 		map.addAttribute("command", applicationFormModel);
 		
 		return "onlinevisaaplication";
@@ -93,7 +94,7 @@ public class ApplicationController {
 		passportFormDetail.setApplicationFormId(application.getId());
 		passportFormDetail.setBirthDate(application.getPersonal().getBirth());
 		
-		passportFormDetail.setFirstName("Komal");
+/*		passportFormDetail.setFirstName("Komal");
 		passportFormDetail.setLastName("Ghule");
 		passportFormDetail.setPrevName("Komal");
 		passportFormDetail.setBirthCity("Junnar");
@@ -107,7 +108,7 @@ public class ApplicationController {
 		passportFormDetail.setIssueCountry("India");
 		passportFormDetail.setIssueDate(new GregorianCalendar(2017, 7, 29).getTime());
 		passportFormDetail.setExpiryDate(new GregorianCalendar(2020, 4, 9).getTime());
-		
+*/		
 		map.addAttribute("command",passportFormDetail );
 		
 		return "ApplicationForm";
@@ -144,7 +145,7 @@ public class ApplicationController {
 		applicantDetailsForm.setEmail(application.getContact().getEmail());
 		
 		
-		applicantDetailsForm.setHouseNo("1234567890");
+/*		applicantDetailsForm.setHouseNo("1234567890");
 		applicantDetailsForm.setCity("Junnar");
 		applicantDetailsForm.setState("Maharashtra");
 		applicantDetailsForm.setCountry("India");
@@ -170,7 +171,7 @@ public class ApplicationController {
 		applicantDetailsForm.setMobile("1234567890");
 		applicantDetailsForm.setPrevOccupation("nothing");
 		applicantDetailsForm.setPinCode("123456");
-		
+*/		
 		map.addAttribute("command",applicantDetailsForm);
 		return "ApplicantDetailForm";
 	}
@@ -228,7 +229,7 @@ public class ApplicationController {
 		visaSoughtDetails.setRefFromCountry(application.getVisa().getFromCountry());
 		visaSoughtDetails.setRefToCountry("INDIA");
 		
-		visaSoughtDetails.setVisitPlace("Pune");
+/*		visaSoughtDetails.setVisitPlace("Pune");
 		visaSoughtDetails.setArrivalPortInIndia("Mumbai");
 		visaSoughtDetails.setCities("Mumbai,Chennai,Colcata,Pune");
 		visaSoughtDetails.setDuration("6");
@@ -241,7 +242,7 @@ public class ApplicationController {
 		visaSoughtDetails.setRefToName("Sachin Punekar");
 		visaSoughtDetails.setRefToAddress("B-303,Sanskriti Bhagya Residency,Ambegaon Pathar,Pune-16");
 		visaSoughtDetails.setRefToMobile("1234567890");
-		
+*/		
 		map.addAttribute("command",visaSoughtDetails);
 		return "VisaSought";
 	}
@@ -369,11 +370,12 @@ public class ApplicationController {
 		
 		PaymentDetailForm paymentDetailForm = new PaymentDetailForm();
 		paymentDetailForm.setApplicationFormId(application.getId());
-		paymentDetailForm.setAmount("100000.90");
+/*		paymentDetailForm.setAmount("100000.90");
 		paymentDetailForm.setPaymentMode("Net Banking");
-		paymentDetailForm.setTransactionId(application.getId());
+*/		paymentDetailForm.setTransactionId(application.getId());
 		paymentDetailForm.setDate(application.getDate());
 		
+		map.addAttribute("id", application.getId());
 		map.addAttribute("command",paymentDetailForm);
 		return "MakePayment";
 	}
@@ -405,22 +407,19 @@ public class ApplicationController {
 	}
 	
 	@RequestMapping("/printForm")
-	public String printForm(){
-		
+	public String printForm(Model map){
+		map.addAttribute("command", new ShowFormLoginModel());
 		return "PrintApplicationForm";
 	}
 
 	@RequestMapping("/showForm")
-	public String showForm(){
-		
-		return "ShowForm";
+	public String showForm(ShowFormLoginModel showFormLoginModel,Model map){
+		Application application = appService.getApplicationById(showFormLoginModel.getId());
+		if(application != null){
+			map.addAttribute("showForm", application);
+			return "ShowForm";
+		}
+		return "error";
 	}
-	@RequestMapping("/upload")
-	public String showUpload(){
-		
-		
-		return "home";
-	}
-	
 	
 }

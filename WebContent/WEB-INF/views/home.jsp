@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>HOME_PAGE_VISA_PROJ</title>
+<title>home</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -19,9 +19,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
-<link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- <link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<!-- start-smoth-scrolling -->
+ --><!-- start-smoth-scrolling -->
 
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -73,6 +73,7 @@ background-image:url(images4.jpg);}
 	</div>
 <!-- //header -->
 <!-- navigation -->
+
 	<div class="navigation-agileits">
 		<div class="container">
 			<nav class="navbar navbar-default">
@@ -86,8 +87,7 @@ background-image:url(images4.jpg);}
 								</button>
 							</div> 
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-								<ul class="nav navbar-nav">
-										
+								<ul class="nav navbar-nav">										
 									<!-- Mega Menu -->
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">HOME<b class="caret"></b></a>
 		<ul class="dropdown-menu multi-column columns-3">
@@ -238,14 +238,14 @@ background-image:url(images4.jpg);}
 
 <li><a href="onlinevisaaplication">Regular Visa Application</a></li>
 <li><a href="filledPartialyForm">Complete Partially Filled form</a></li>
-<li><a href="showStatus">Visa Status Enquiry</a></li>
-<li><a href="printForm1">Print Registered Application </a></li>
-	</ul>
+<li><a href="status">Visa Status Enquiry</a></li>
+<li><a href="printForm">Print Registered Application </a></li>
+</ul>
 </div>
 </nav>
 </div>
 </div>
-		
+<h5 align="right"><a href="index">Admin</a></h5>		
 
 	
    
@@ -298,7 +298,7 @@ background-image:url(images4.jpg);}
 		<div class="right_area" id="overview">
 			<div class="right_bar_inner">
 				<h4 style="text-align: center; color: crimson">OverView</h4>
-			</div>
+			</div><br/><br/>
 			<p>
 				All foreign nationals entering India are required to possess a valid
 				international travel document in the form of a national passport
@@ -332,7 +332,7 @@ background-image:url(images4.jpg);}
 			style="display: none">
 			<div class="right_bar_inner">
 				<h4>Regular Visa Application</h4>
-			</div>
+			</div><br/><br/>
 			<p>All Individual visa seekers are requested to apply for the
 				Indian Visa through online application link. Or can apply by typing
 				the URL: https://indianvisaonline.gov.in in the address bar of web
@@ -356,7 +356,7 @@ background-image:url(images4.jpg);}
 		<div class="right_area" id="visa_categories" style="display: none">
 			<div class="right_bar_inner">
 				<h4>Visa Categories</h4>
-			</div>
+			</div><br/><br/>
 			<p>
 				Governement of India issues the following visas:
 			</p>
@@ -373,7 +373,7 @@ background-image:url(images4.jpg);}
 		<div class="right_area" id="visa_processing_time" style="display: none">
 			<div class="right_bar_inner">
 				<h4>Visa Processing Time</h4>
-			</div>
+			</div><br/><br/>
 			<p>Upon receipt of the Visa Application through Indian Visa
 				Application Center or directly, the Indian Mission/ Post requires a
 				minimum of three working days to process the case and issue a visa
@@ -386,7 +386,7 @@ background-image:url(images4.jpg);}
 		<div class="right_area" id="visa_photo_requirements" style="display: none">
 			<div class="right_bar_inner">
 				<h4>Photo Requirements</h4>
-			</div>
+			</div><br/><br/>
 			<p>
 				Online India Visa Application allows the Applicant to upload a
 				digital photograph of self to complete the regular visa application.
@@ -421,7 +421,7 @@ background-image:url(images4.jpg);}
 		<div class="right_area" id="fees_indian_visa" style="display: none">
 			<div class="right_bar_inner">
 				<h4>Fee for Indian Visa</h4>
-			</div>
+			</div><br/><br/>
 			<p>The visa fee depends upon the type of applied for and duration
 				of visa.At the end of the process the basic fee shall be displayed.
 				However, this fee shall be indicative only and final fee shall be
@@ -438,7 +438,7 @@ background-image:url(images4.jpg);}
 		<div class="right_area" id="visa_provision" style="display: none">
 			<div class="right_bar_inner">
 				<h4>Visa Provision</h4>
-			</div>
+			</div><br/><br/>
 			<table class="right_area_table" style="border: none">
 				<thead>
 					<tr>
@@ -476,7 +476,7 @@ background-image:url(images4.jpg);}
 		<div class="right_area" id="technical_info" style="display: none">
 			<div class="right_bar_inner">
 				<h4>Technical Information</h4>
-			</div>
+			</div><br/><br/>
 			<p>
 				<span> Important Technical Information for Regular Visa
 					application</span>
@@ -504,7 +504,7 @@ background-image:url(images4.jpg);}
 		<div class="right_area" id="instructions" style="display: none">
 			<div class="right_bar_inner">
 				<h4>Instructions</h4>
-			</div>
+			</div><br/><br/>
 			<p>
 				<span> A. Online application form:</span>
 			</p>
@@ -581,7 +581,7 @@ background-image:url(images4.jpg);}
 		<div class="right_area" id="useful_weblink" style="display: none">
 			<div class="right_bar_inner">
 				<h4>Useful Weblink</h4>
-			</div>
+			</div><br/><br/>
 			<p>
 				<span> Important Technical Information for Regular Visa
 					application</span>

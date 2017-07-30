@@ -32,35 +32,40 @@ public class FilledPartialController {
 		System.out.println("AppFormfill --------->>>"+filledPartialFormModel);
 		//Application application = (Application) session.getAttribute("visaApplication");
 		Application application = appService.getApplicationById(filledPartialFormModel.getApplicationFormId());
-		System.out.println("===========app from db===========");
-		System.out.println(application);
 		
-		session.setAttribute("fillAttribute", application);		
+		if(application != null){
+			System.out.println("===========app from db===========");
+			System.out.println(application);
+			
+			session.setAttribute("fillAttribute", application);		
 
-		PassportFormDetail passportFormDetail = new PassportFormDetail();
-		passportFormDetail.setBirthDate(application.getPersonal().getBirth());
-		passportFormDetail.setApplicationFormId(application.getId());
-		passportFormDetail.setBirthCity(application.getPersonal().getBirthPlace());
-		passportFormDetail.setBirthCountry(application.getPersonal().getBirthCountry());
-		passportFormDetail.setExpiryDate(application.getPassport().getExpiryDate());
-		passportFormDetail.setIssueCity(application.getPassport().getIssuePlace());
-		passportFormDetail.setFirstName(application.getPersonal().getGivenname());
-		passportFormDetail.setGender(application.getPersonal().getSex());
-		passportFormDetail.setIssueCountry(application.getPassport().getPassportCountry());
-		passportFormDetail.setIssueDate(application.getPassport().getIssueDate());
-		passportFormDetail.setLastName(application.getPersonal().getGivenname());
-		passportFormDetail.setNationalId(application.getPersonal().getNationalId());
-		passportFormDetail.setPassportNo(application.getPassport().getPassportNo());
-		passportFormDetail.setPrevName(application.getPersonal().getPreviousname());
-		passportFormDetail.setQualification(application.getPersonal().getEducation());
-		passportFormDetail.setReligion(application.getPersonal().getReligion());
-		passportFormDetail.setTwoYearsMoreLiveForFromCountry(application.getPersonal().getResidentInFromCountry());
-		passportFormDetail.setVisibleIdMark(application.getPersonal().getVisibleMarks());
-		
-		
-		map.addAttribute("command",passportFormDetail );		
-		
-		return "ApplicationForm";
+			PassportFormDetail passportFormDetail = new PassportFormDetail();
+			passportFormDetail.setBirthDate(application.getPersonal().getBirth());
+			passportFormDetail.setApplicationFormId(application.getId());
+			passportFormDetail.setBirthCity(application.getPersonal().getBirthPlace());
+			passportFormDetail.setBirthCountry(application.getPersonal().getBirthCountry());
+			passportFormDetail.setExpiryDate(application.getPassport().getExpiryDate());
+			passportFormDetail.setIssueCity(application.getPassport().getIssuePlace());
+			passportFormDetail.setFirstName(application.getPersonal().getGivenname());
+			passportFormDetail.setGender(application.getPersonal().getSex());
+			passportFormDetail.setIssueCountry(application.getPassport().getPassportCountry());
+			passportFormDetail.setIssueDate(application.getPassport().getIssueDate());
+			passportFormDetail.setLastName(application.getPersonal().getGivenname());
+			passportFormDetail.setNationalId(application.getPersonal().getNationalId());
+			passportFormDetail.setPassportNo(application.getPassport().getPassportNo());
+			passportFormDetail.setPrevName(application.getPersonal().getPreviousname());
+			passportFormDetail.setQualification(application.getPersonal().getEducation());
+			passportFormDetail.setReligion(application.getPersonal().getReligion());
+			passportFormDetail.setTwoYearsMoreLiveForFromCountry(application.getPersonal().getResidentInFromCountry());
+			passportFormDetail.setVisibleIdMark(application.getPersonal().getVisibleMarks());
+			
+			
+			map.addAttribute("command",passportFormDetail );		
+			
+			return "ApplicationForm";
+		}
+		return "error";
+
 	}
 
 

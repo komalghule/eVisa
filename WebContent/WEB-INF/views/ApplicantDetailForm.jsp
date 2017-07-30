@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Applicant Details Form</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,9 +21,9 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
-<link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- <link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<!-- start-smoth-scrolling -->
+ --><!-- start-smoth-scrolling -->
 
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -36,7 +36,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	});
 </script>
 <!-- start-smoth-scrolling -->
-</head>
+
 <style>
 
 .right_area
@@ -91,7 +91,7 @@ padding-top:10px;
  text-align:center;
  font-size:20px;
 	possition:absolute;
-	background-color:pink;
+	background-color:#fe9126;
 	
 	 
 
@@ -115,7 +115,31 @@ width:70%;
 text-align:left;
 
 }
+.container
+{
+margin-top:10px;
+width:70%;
+height:1060%;
+border:solid 2px;
+margin-bottom:20px;
 
+}
+#tempid{
+width:35%;
+}
+#title{
+text-align:left;
+margin-bottom:12px;
+margin-top:5px;
+width: 100%;
+color: crimson;
+}
+#btn
+{
+heigth:40px;
+width:44%;
+
+}
 </style>
 	
 </head>
@@ -127,45 +151,35 @@ text-align:left;
 		<div id="head">Applicant Details Form</div>
 	<form:form action="visaSought" modelAttribute="command">
 	
-		
-		
 		<div class="container">
-				
-
-      
-	<br/>
-		<div class="col-md-10">
-		<h5>Please Note Down the Temporary Application Id:</h5><br/>
+		<br/>
+		<div class="col-md-11">
+		<h5>Please Note Down the Temporary Application Id : ${visaApplication.id}</h5><br/><hr>
 		<table  id=tb>
 			<tbody>
 				
 			<tr>
 				
 				<td colspan=2>
-				<legend><h4 id="title" style="text-decoration: darkorchid;text-align:left;color:crimson">Applicant Address Details</h4></legend></td>
+	<legend><h4 id="title">Applicant Address Details</h4></legend></td>
 				<td></td>
 				</tr>
 				
 				<tr>
-			
-			
-			
-			
-				<tr>
-					<td colspan=2><h5  style="color:blue" id="pa">Present Address</h5></td>
+					<td colspan=2><h5 style="color:blue;">Present Address</h5></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td id="label">House No./Street</td>
-					<td><form:input path="houseNo" type="text" pattern="[A-Za-z0-9]{10}"/></td>
+					<td><form:input path="houseNo" type="text" pattern="[A-Za-z0-9 ]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Village/Town/City</td>
-					<td><form:input path="city" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="city" type="text" pattern="[A-Za-z ]"/></td>
 				</tr>
 				<tr>
 					<td id="label">State/District</td>
-					<td><form:input path="state" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="state" pattern="[A-Za-z ]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Country</td>
@@ -204,15 +218,15 @@ text-align:left;
 				</tr>
 				<tr>
 					<td id="label">House No./Street</td>
-					<td><form:input path="pHouseNo" type="text" pattern="[A-Za-z0-9]{10}"/></td>
+					<td><form:input path="pHouseNo" type="text" pattern="[A-Za-z0-9 ]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Village/Town/City</td>
-					<td><form:input path="pCity" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="pCity" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 					<td id="label">State/District</td>
-					<td><form:input path="pState" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="pState" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Country</td>
@@ -236,46 +250,46 @@ text-align:left;
 				</tr>
 				<tr>
 					<td id="label">Name</td>
-					<td><form:input path="fatherName" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="fatherName" type="text" pattern="[A-Za-z ]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Nationality</td>
-					<td><form:input path="fatherNationality" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="fatherNationality" type="text" pattern="[A-Za-z ]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Preivious Nationality</td>
-					<td><form:input path="fatherPrevNationality" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="fatherPrevNationality" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Place of Birth</td>
-					<td><form:input path="fatherBirthPlace" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="fatherBirthPlace" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Country of Birth</td>
-					<td><form:input path="fatherBirthCountry" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="fatherBirthCountry" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 					<td id="label"><h5  style="color:blue">Mothers Details<h5></td>
 				</tr>
 				<tr>
 					<td id="label">Name</td>
-					<td><form:input path="motherName" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="motherName" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Nationality</td>
-					<td><form:input path="motherNationality" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="motherNationality" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Preivious Nationality</td>
-					<td><form:input path="motherPrevNationality" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="motherPrevNationality" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Place of Birth</td>
-					<td><form:input path="motherBirthPlace" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="motherBirthPlace" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Country of Birth</td>
-					<td><form:input path="motherBirthCountry" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="motherBirthCountry" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 				
@@ -288,7 +302,7 @@ text-align:left;
 					<td id="label">Present Occupation</td>
 					<td><form:select path="occupation">
 							<option>student</option>
-							<option>student</option>
+							<option>employee</option>
 							<option>student</option>
 							<option>student</option>
 							<option>student</option>
@@ -303,15 +317,15 @@ text-align:left;
 				</tr>
 				<tr>
 					<td id="label">Employer Name/ Buisness</td>
-					<td><form:input path="business" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="business" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Designation</td>
-					<td><form:input path="designation" type="text" pattern="[A-Za-z]{5,100}"/></td>
+					<td><form:input path="designation" type="text" pattern="[A-Za-z]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Address</td>
-					<td><form:input path="address" type="text"	pattern="[A-Za-z0-9]{5,100}"/></td>
+					<td><form:input path="address" type="text"	pattern="[A-Za-z0-9 ]"/></td>
 				</tr>
 				<tr>
 					<td id="label">Mobile NO</td>
@@ -330,17 +344,23 @@ text-align:left;
 						<form:checkbox path="fromPoliceMilitary"/>
 					</td>
 				</tr>		
+				<tr>
 				
+					<td colspan=2>
+						<center>
+						<br/><br/>
+						<input id="btn" type="submit" class="btn btn-danger" value="Save and Temporary Exit"/>
+						<input id="btn" type="submit" class="btn btn-success" value="Save and Continue"/>
+					</center>
+					</td>
+					
+					<td></td>
+				</tr>
 			</tbody>
 		</table>
 		</div>
 		</div>
-		<br/>
-		<center>	
-				<input id="btn" type="submit" class="btn btn-default" formaction="home" value="Save and Temporary Exit"></input>
-				<input 	id="btn" type="submit" class="btn btn-default" value="Save and Continue"></input>
-					
-		</center>
+		
 	</form:form>
 </body>
 </html>

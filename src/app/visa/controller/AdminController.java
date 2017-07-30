@@ -5,6 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +35,16 @@ public class AdminController {
 	@Autowired
 	CenterService centerService;
 	
+	@Autowired
+	private MailSender mailSender;
+	
+	@RequestMapping("/index")
+	public String showAdminHome(Model map){
+	
+		map.addAttribute("command", new AdminLoginModel());
+		return "index";
+	}
+
 	@RequestMapping("/admin")
 	public String showAdminlogin(Model map){
 		System.out.println("go admin login");
@@ -43,10 +56,11 @@ public class AdminController {
 	public String showAdminIndex(AdminLoginModel adminLoginModel){
 		System.out.println(adminLoginModel+"in admin");
 		Admin admin = service.validateAdmin(adminLoginModel.getUsername(), adminLoginModel.getPassword());
-		if(admin!=null){
-			System.out.println(admin+"admin");
+		if(admin != null){
+			
 			return "admin";
 		}else{
+			
 			return "redirect:admin";//controller
 		}
 		
@@ -115,8 +129,54 @@ public class AdminController {
 	@RequestMapping("/removeApp")
 	public String processRemoveApp(@RequestParam(value="id")String id){
 		System.out.println("in applicationremove");
+		Application application = appService.getApplicationById(id);
+		String email = application.getContact().getEmail();
 		service.removeApplication(id);
 		System.out.println("in after applicationremove");
+		
+		String msg="Your Visa get rejected, It was because of some resons. Collect your documents from Embasy. Thank you!!";
+		SimpleMailMessage mailMessage = new SimpleMailMessage();
+		mailMessage.setTo(email);
+		mailMessage.setSubject("Visa Application Confirmation");
+		mailMessage.setText(msg);
+		
+		try
+		{
+			mailSender.send(mailMessage);
+		}
+		catch (MailException e) 
+		{
+			System.out.println("inside mail exception");
+			e.printStackTrace();
+		}
+		
 		return "redirect:allApplicantDetails";
 	}
+	
+	@RequestMapping("/approveApp")
+	public String processApproveApp(@RequestParam(value="id")String id){
+		Application application = appService.getApplicationById(id);
+		application.setStatus("Approved");
+		appService.saveApp(application);
+		
+		
+		String msg="Your Visa get approved, It will delivered as your reported address within 2 weeks. Thank you!!";
+		SimpleMailMessage mailMessage = new SimpleMailMessage();
+		mailMessage.setTo(application.getContact().getEmail());
+		mailMessage.setSubject("Visa Application Confirmation");
+		mailMessage.setText(msg);
+		
+		try
+		{
+			mailSender.send(mailMessage);
+		}
+		catch (MailException e) 
+		{
+			System.out.println("inside mail exception");
+			e.printStackTrace();
+		}
+
+		return "redirect:allApplicantDetails";
+	}
+	
 }

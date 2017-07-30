@@ -1,11 +1,10 @@
-
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Super Market an Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>Online Visa Application</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,9 +20,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
-<link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- <link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-<!-- start-smoth-scrolling -->
+ --><!-- start-smoth-scrolling -->
 
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -106,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		function emailValidation(email){
 			//var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/);
     		//var pattern = new RegExp("^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-    		var pattern = new RegExp(/^([\w\.\-])@([\w\-]+)((\.(\w){2,3})+)$/i);
+    		var pattern = new RegExp(/^[a-z0-9\.\_\%\+\-]+\@[a-z0-9\.\-]+\.[a-z]{2,3}$/);
     		return pattern.test(email);
 		}		
 
@@ -145,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                {
                    if (dd > ListofDays[mm-1])
                    { 
-                       $('#error-birth-date').show();  
+                       $('#error-birth-date').show().text('invalid birth date').css('color', 'red');  
                        $('#error-arrival-date').hide();      
                        return false;
                    }
@@ -159,13 +158,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                    }
                    if ((lyear==false) && (dd>=29))                	   
                    { 
-                       $('#error-birth-date').show();
+                       $('#error-birth-date').show().text('invalid birth date').css('color', 'red');
                        $('#error-arrival-date').hide();
                        return false;
                    }
                    if ((lyear==true) && (dd>29))
                    { 
-                       $('#error-birth-date').show();
+                       $('#error-birth-date').show().text('invalid birth date').css('color', 'red');
                        $('#error-arrival-date').hide();
                        return false;
                    }
@@ -183,34 +182,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         	{
             	if(!emailValidation(Val_email))
 		        {
-            		alert("invalid email");
+            		//alert("invalid email");
 					$('#error-birth-date').hide();
-	            	$('#error-email').show();
+	            	$('#error-email').show().text('invalid email').css('color', 'red');
 	            	return false;
             	}
             }else
            	{
-        		alert("invalid email");
+        		//alert("invalid email");
 				$('#error-birth-date').hide();
-            	$('#error-email').show();
+            	$('#error-email').show().text('invalid email').css('color', 'red');
             	return false;                
         	}
 			
-/*			if(!emailValidation(Val_email)){
-				
-				$('#error-birth-date').hide();
-            	$('#error-email').show();
-            	return false;	
-			}
-			
-           if(!Val_email.match(emailFormat) || Val_email == 0){
-            	$('#error-birth-date').hide();
-            	$('#error-email').show();
-            	return false;
-            }               
- */            
-
-            if(Arrival_Val_date.match(dateformat)){
+		   if(Arrival_Val_date.match(dateformat)){
             	hide();
                 var seperator2 = Arrival_Val_date.split('/');
                 if (seperator2.length>1)
@@ -227,7 +212,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 {
                     if(add > ListofDays[amm-1])
                     {
-                 	   $('#error-arrival-date').show();
+                 	   $('#error-arrival-date').show().text('invalid arrival date').css('color', 'red');
+                       
                  	   $('#error-birth-date').hide();        
                         return false;
                     }
@@ -240,13 +226,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     }
                     if ((lyear==false) && (add>=29))                	   
                     { 
-                        $('#error-arrival-date').show();
+                        $('#error-arrival-date').show().text('invalid arrival date').css('color', 'red');
                         $('#error-birth-date').hide();
                         return false;
                     }
                     if ((lyear==true) && (add>29))
                     { 
-                        $('#error-arrival-date').show();
+                        $('#error-arrival-date').show().text('invalid arrival date').css('color', 'red');
                         $('#error-birth-date').hide();
                         return false;
                     }
@@ -256,29 +242,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             else
             { 
             	$('#error-birth-date').hide();
-         	   	$('#error-arrival-date').show();
+         	   	$('#error-arrival-date').show().text('invalid arrival date').css('color', 'red');
                 return false;
             }
         }
     </script>
 </head>
 <style>
-
-.right_area
-{
-width:40%;
-border:solid 2px;
- height:505px;
-	top:0px;
-	bottom:0px;
-	right:0px;
-	left:0px;
-     margin:auto;
-     padding-left:76px;
-	possition:relative;
-	 
-
-}
 
 .banner
 {
@@ -288,20 +258,23 @@ width:100%;
 #btn
 {
 heigth:40px;
-width:20%;
+width:30%;
 
 }
 
 input
 {
-width:100%;
+
+width:102%;
+
 }
+
 #head
 {
 
 height:40px;
 width:100%;
-padding-top:10px;
+padding-top:8px;
 	bottom:0px;
 	right:0px;
 	left:0px;
@@ -309,7 +282,7 @@ padding-top:10px;
  text-align:center;
  font-size:20px;
 	possition:absolute;
-	background-color:pink;
+	background-color:#fe9126;
 	
 	 
 
@@ -317,7 +290,7 @@ padding-top:10px;
 table
 {
 
-width:70%;
+width:75%;
  height:505px;
 	top:0px;
 	bottom:0px;
@@ -325,8 +298,18 @@ width:70%;
 	left:0px;
      margin:auto;
     possition:absolute;
-  
+    
 }
+.container
+{
+margin-top:10px;
+width:65%;
+height:555px;
+border:solid 2px;
+
+}
+
+
 #i
 {
 text-align:left;
@@ -340,13 +323,13 @@ text-align:left;
 		<img class="banner" alt="Indian Visa Online"
 			src="images/banner1.jpg">
 	</div>
-<form:form action="appForm"  modelAttribute="command">
+<form:form action="appForm"  modelAttribute="command" onsubmit="return validateForm();">
 		
 		<div id="head">Online Visa Application</div>
 	 
 	<div class="container" id="main">
 	<br/>
-	<div class="col-md-10">
+	<div class="col-md-11">
          <table id=tb>
              <tbody>
                   
@@ -367,21 +350,25 @@ text-align:left;
 		        </tr>		
 				
 				<tr id="i">
-					<td id="label"> Date of Birth</td> 
+					<td id="label"> Date of Birth<div>(dd/mm/yyyy)</div></td> 
 					<td><form:input type="date" path="birthDate" /></td>
+					<span id="error-birth-date" class="error" >please enter valid birth date</span>
+					
 				</tr>
 				
 
 				<tr id="i">
 					<td id="label">Email ID </td> 
-					<td><form:input type="email" path="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" /></td>
+					<td><form:input type="email" path="email"  /></td>
+					<span id="error-email" class="error">please enter email</span>
 				</tr>
 				
 
 
 				<tr id="i">
-					<td id="label"> Expected Date of Arrival</td> 
+					<td id="label"> Expected Date of Arrival<div>(dd/mm/yyyy)</div></td> 
 					<td><form:input type="date" path="arrivalDate" /></td>
+					<span id="error-arrival-date" class="error">please enter valid arrival date</span>
 
 				</tr>
 				
@@ -399,7 +386,7 @@ text-align:left;
 				</tr>
 				
 			<tr>
-				<td colspan=2><center><input id="btn" type="submit" class="btn-danger" value="Continue"  /></center></td>
+				<td colspan=2><center><input id="btn" type="submit" class="btn btn-success" value="Continue"  /></center></td>
 			<td></td>
 			</tr>               
            </tbody>         
@@ -407,7 +394,6 @@ text-align:left;
   </div>
 </div>
 <br/>
-<center></center>
  </form:form>
 </body>
 </html>

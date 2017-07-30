@@ -1,20 +1,18 @@
 package app.visa.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.mongodb.WriteResult;
-
-import app.visa.dao.AdminDao;
-import app.visa.model.FilledPartialFormModel;
 import app.visa.model.SetStatusModel;
+import app.visa.model.ShowFormLoginModel;
 import app.visa.pojo.Application;
 import app.visa.service.AdminService;
 import app.visa.service.ApplicationService;
@@ -27,24 +25,37 @@ public class StatusController {
 
 	@Autowired
 	AdminService adminService;
+	
+	@Autowired
+	private MailSender mailSender;
+	
 	@RequestMapping("/status")
 	public String showStatusLogin(Model map){
 		
-		map.addAttribute("command", new FilledPartialFormModel());
+		ShowFormLoginModel showFormLoginModel = new ShowFormLoginModel();
+		map.addAttribute("command", showFormLoginModel);
+		//map.addAttribute("command", new FilledPartialFormModel());
 		return "CheckStatus";
 	}
 
 	@RequestMapping("/showStatus")
-	public String showStatusForm(FilledPartialFormModel filledPartialFormModel,Model map){
+	public String showStatusForm(Model map,ShowFormLoginModel showFormLoginModel){
 		
-		Application application = service.getApplicationById(filledPartialFormModel.getApplicationFormId());
+		//Application application = service.getApplicationById(filledPartialFormModel.getApplicationFormId());
 /*		System.out.println("==application : "+application);
 		System.out.println("==pid : "+application.getPassport().getPassportNo()+"==");
 		System.out.println("==appid : " + application.getId());
 		System.out.println("==name : " + application.getPersonal().getGivenname());
 */		
-		map.addAttribute("application", application);
-		return "UserStatus";
+		//map.addAttribute("application", application);
+		
+		Application application = service.getApplicationById(showFormLoginModel.getId());
+		
+		if(application != null){
+			map.addAttribute("application", application);
+			return "UserStatus";
+		}
+		return "error";
 	}
 
 	
@@ -58,6 +69,26 @@ public class StatusController {
 		System.out.println(application+"-===========");
 		service.saveApp(application);
 		System.out.println(application+"-===========");
+		
+		
+		String msg="Your Visa Status get updated to "+application.getStatus()+", visit a web again get check out. Thank you!!";
+		SimpleMailMessage mailMessage = new SimpleMailMessage();
+		mailMessage.setTo(application.getContact().getEmail());
+		mailMessage.setSubject("Visa Application Confirmation");
+		mailMessage.setText(msg);
+		
+		try
+		{
+			mailSender.send(mailMessage);
+		}
+		catch (MailException e) 
+		{
+			System.out.println("inside mail exception");
+			e.printStackTrace();
+		}
+
+		
+		
 		return "redirect:allApplicantDetails";
 	}
 
